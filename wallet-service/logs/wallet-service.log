@@ -1,0 +1,772 @@
+2025-11-05 00:01:02 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=26m17s591ms).
+2025-11-05 00:31:08 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=29m35s65ms).
+2025-11-05 01:01:02 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=28m24s555ms).
+2025-11-05 01:30:58 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=29m55s468ms).
+2025-11-05 02:01:03 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=28m35s707ms).
+2025-11-05 02:31:21 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m17s914ms).
+2025-11-05 02:55:02 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=22m11s268ms).
+2025-11-05 03:01:01 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m58s837ms).
+2025-11-05 03:31:10 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m8s377ms).
+2025-11-05 04:00:50 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=28m39s844ms).
+2025-11-05 04:18:44 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m54s288ms).
+2025-11-05 04:31:39 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12m55s229ms).
+2025-11-05 05:01:08 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=29m28s892ms).
+2025-11-05 05:25:45 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=24m37s310ms).
+2025-11-05 05:28:12 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m26s542ms).
+2025-11-05 05:45:10 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m58s570ms).
+2025-11-05 06:06:28 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=21m17s999ms).
+2025-11-05 06:24:45 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m16s405ms).
+2025-11-05 06:31:22 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m37s603ms).
+2025-11-05 07:01:00 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=29m38s89ms).
+2025-11-05 07:26:49 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=25m18s894ms).
+2025-11-05 07:31:11 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m21s509ms).
+2025-11-05 08:01:14 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=29m2s659ms).
+2025-11-05 08:27:49 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=26m35s661ms).
+2025-11-05 08:31:24 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m35s113ms).
+2025-11-05 08:57:51 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=25m56s835ms).
+2025-11-05 09:22:06 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=24m14s565ms).
+2025-11-05 09:23:31 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m24s766ms).
+2025-11-05 09:48:14 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=24m43s814ms).
+2025-11-05 09:49:58 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m13s538ms).
+2025-11-05 09:50:32 [http-nio-8082-exec-5] INFO  c.e.w.service.WalletService - Fetching wallet balances for user ID: 52
+2025-11-05 09:50:32 [http-nio-8082-exec-5] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.wallet_name,w1_0.balance from wallets w1_0 where w1_0.user_id=?
+2025-11-05 09:50:32 [http-nio-8082-exec-5] DEBUG c.e.w.service.WalletService - Fetched 2 wallet balances for user 52
+2025-11-05 09:52:21 [http-nio-8082-exec-8] INFO  c.e.w.service.WalletService - Credit request - walletId: 4, amount: 5000, description: salary
+2025-11-05 09:52:21 [http-nio-8082-exec-8] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0 where w1_0.id=?
+2025-11-05 09:52:21 [http-nio-8082-exec-8] DEBUG c.e.w.service.TransactionService - Checking limits for wallet 4 [CREDIT]: 2025-11-04T18:30 - 2025-11-05T18:29:59.999999999
+2025-11-05 09:52:21 [http-nio-8082-exec-8] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 09:52:21 [http-nio-8082-exec-8] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 09:52:21 [http-nio-8082-exec-8] INFO  c.e.w.service.TransactionService - CREDIT transaction within limits. Daily total: 0.00, Monthly total: 0.00
+2025-11-05 09:52:21 [http-nio-8082-exec-8] DEBUG org.hibernate.SQL - insert into transactions (amount,description,timestamp,type,wallet_id) values (?,?,?,?,?)
+2025-11-05 09:52:21 [http-nio-8082-exec-8] INFO  c.e.w.service.WalletService - Credit successful - walletId: 4, new balance: 15000.00
+2025-11-05 09:52:21 [http-nio-8082-exec-8] DEBUG org.hibernate.SQL - update wallets set balance=?,user_id=?,version=?,wallet_name=? where id=? and version=?
+2025-11-05 09:54:19 [http-nio-8082-exec-10] ERROR c.e.w.e.GlobalExceptionHandler - Unhandled exception: 
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/transactions/wallets/4.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-11-05 09:54:31 [http-nio-8082-exec-4] INFO  c.e.w.service.TransactionService - Fetching transactions for wallet ID 4
+2025-11-05 09:54:31 [http-nio-8082-exec-4] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0 where w1_0.id=?
+2025-11-05 09:54:31 [http-nio-8082-exec-4] DEBUG org.hibernate.SQL - select t1_0.id,t1_0.amount,t1_0.description,t1_0.timestamp,t1_0.type,t1_0.wallet_id from transactions t1_0 left join wallets w1_0 on w1_0.id=t1_0.wallet_id where w1_0.id=?
+2025-11-05 09:54:56 [http-nio-8082-exec-7] INFO  c.e.w.service.TransactionService - Fetching transaction history: userId=null, walletId=null, type=null, start=null, end=null, page=0, size=10
+2025-11-05 09:54:56 [http-nio-8082-exec-7] DEBUG org.hibernate.SQL - select t1_0.id,t1_0.amount,t1_0.description,t1_0.timestamp,t1_0.type,t1_0.wallet_id from transactions t1_0 join wallets w1_0 on w1_0.id=t1_0.wallet_id where (? is null or w1_0.id=?) and (? is null or w1_0.user_id=?) and (? is null or t1_0.type=?) and (? is null or t1_0.timestamp>=?) and (? is null or t1_0.timestamp<=?) order by t1_0.timestamp desc limit ?
+2025-11-05 09:54:57 [http-nio-8082-exec-7] WARN  o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$WarningLoggingModifier - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2025-11-05 09:56:10 [http-nio-8082-exec-9] ERROR c.e.w.e.GlobalExceptionHandler - Unhandled exception: 
+org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'start' for method parameter type String is not present
+	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValueInternal(RequestParamMethodArgumentResolver.java:220)
+	at org.springframework.web.method.annotation.RequestParamMethodArgumentResolver.handleMissingValue(RequestParamMethodArgumentResolver.java:196)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:227)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:181)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-11-05 09:57:49 [http-nio-8082-exec-1] INFO  c.e.w.service.TransactionService - Fetching all transactions
+2025-11-05 09:57:49 [http-nio-8082-exec-1] DEBUG org.hibernate.SQL - select t1_0.id,t1_0.amount,t1_0.description,t1_0.timestamp,t1_0.type,t1_0.wallet_id from transactions t1_0
+2025-11-05 09:58:20 [http-nio-8082-exec-2] ERROR c.e.w.e.GlobalExceptionHandler - Unhandled exception: 
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/wallets/user.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-11-05 09:58:56 [http-nio-8082-exec-3] INFO  c.e.w.service.TransactionService - Fetching all transactions
+2025-11-05 09:58:56 [http-nio-8082-exec-3] DEBUG org.hibernate.SQL - select t1_0.id,t1_0.amount,t1_0.description,t1_0.timestamp,t1_0.type,t1_0.wallet_id from transactions t1_0
+2025-11-05 10:00:19 [http-nio-8082-exec-5] INFO  c.e.w.service.TransactionService - Fetching transactions for user 52 from 2025-11-04 to 2025-11-05 with type null
+2025-11-05 10:00:19 [http-nio-8082-exec-5] ERROR c.e.w.service.TransactionService - Invalid date format provided: start=2025-11-04, end=2025-11-05
+java.time.format.DateTimeParseException: Text '2025-11-04' could not be parsed at index 2
+	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108)
+	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010)
+	at java.base/java.time.LocalDate.parse(LocalDate.java:435)
+	at com.example.wallet_service.service.TransactionService.getUserTransactions(TransactionService.java:81)
+	at com.example.wallet_service.controller.TransactionController.getUserTransactions(TransactionController.java:58)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-11-05 10:00:49 [http-nio-8082-exec-9] INFO  c.e.w.service.TransactionService - Fetching transactions for user 52 from 04-11-2025 to 05-11-2025 with type null
+2025-11-05 10:00:49 [http-nio-8082-exec-9] DEBUG org.hibernate.SQL - select t1_0.id,t1_0.amount,t1_0.description,t1_0.timestamp,t1_0.type,t1_0.wallet_id from transactions t1_0 join wallets w1_0 on w1_0.id=t1_0.wallet_id where w1_0.user_id=? and t1_0.timestamp between ? and ? and (? is null or t1_0.type=?) order by t1_0.timestamp desc
+2025-11-05 10:10:39 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-05 10:10:39 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-11-05 10:10:39 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-05 10:10:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-05 10:10:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-05 10:17:02 [main] INFO  c.e.w.WalletServiceApplication - Starting WalletServiceApplication using Java 21.0.8 with PID 17807 (/Users/shubhamkumar/Desktop/DigitalWalletSystem/wallet-service/build/classes/java/main started by shubhamkumar in /Users/shubhamkumar/Desktop/DigitalWalletSystem/wallet-service)
+2025-11-05 10:17:02 [main] DEBUG c.e.w.WalletServiceApplication - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-11-05 10:17:02 [main] INFO  c.e.w.WalletServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-05 10:17:03 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-05 10:17:03 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 2 JPA repository interfaces.
+2025-11-05 10:17:03 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2025-11-05 10:17:03 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-05 10:17:03 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-11-05 10:17:03 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-05 10:17:03 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 728 ms
+2025-11-05 10:17:03 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-05 10:17:03 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-11-05 10:17:03 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-05 10:17:03 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-05 10:17:03 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-05 10:17:03 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5423a17
+2025-11-05 10:17:03 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-05 10:17:03 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-05 10:17:03 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-05 10:17:04 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-05 10:17:04 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-05 10:17:04 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-05 10:17:05 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
+2025-11-05 10:17:05 [main] INFO  c.e.w.WalletServiceApplication - Started WalletServiceApplication in 2.721 seconds (process running for 2.952)
+2025-11-05 10:18:13 [http-nio-8082-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-05 10:18:13 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-05 10:18:13 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2025-11-05 10:18:13 [http-nio-8082-exec-1] DEBUG org.hibernate.SQL - insert into wallets (balance,user_id,version,wallet_name) values (?,?,?,?)
+2025-11-05 10:18:36 [http-nio-8082-exec-3] INFO  c.e.w.service.WalletService - Fetching all wallets
+2025-11-05 10:18:36 [http-nio-8082-exec-3] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0
+2025-11-05 10:18:36 [http-nio-8082-exec-3] DEBUG c.e.w.service.WalletService - Total wallets fetched: 5
+2025-11-05 10:18:53 [http-nio-8082-exec-5] DEBUG org.hibernate.SQL - insert into wallets (balance,user_id,version,wallet_name) values (?,?,?,?)
+2025-11-05 10:19:08 [http-nio-8082-exec-6] INFO  c.e.w.service.WalletService - Debit request - walletId: 4, amount: 5000, description: rent
+2025-11-05 10:19:08 [http-nio-8082-exec-6] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0 where w1_0.id=?
+2025-11-05 10:19:08 [http-nio-8082-exec-6] DEBUG c.e.w.service.TransactionService - Checking limits for wallet 4 [DEBIT]: 2025-11-04T18:30 - 2025-11-05T18:29:59.999999999
+2025-11-05 10:19:08 [http-nio-8082-exec-6] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:19:08 [http-nio-8082-exec-6] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:19:08 [http-nio-8082-exec-6] INFO  c.e.w.service.TransactionService - DEBIT transaction within limits. Daily total: 0.00, Monthly total: 5000.00
+2025-11-05 10:19:08 [http-nio-8082-exec-6] DEBUG org.hibernate.SQL - insert into transactions (amount,description,timestamp,type,wallet_id) values (?,?,?,?,?)
+2025-11-05 10:19:08 [http-nio-8082-exec-6] INFO  c.e.w.service.WalletService - Debit successful - walletId: 4, new balance: 10000.00
+2025-11-05 10:19:08 [http-nio-8082-exec-6] DEBUG org.hibernate.SQL - update wallets set balance=?,user_id=?,version=?,wallet_name=? where id=? and version=?
+2025-11-05 10:19:17 [http-nio-8082-exec-7] INFO  c.e.w.service.WalletService - Credit request - walletId: 4, amount: 5000, description: salary
+2025-11-05 10:19:17 [http-nio-8082-exec-7] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0 where w1_0.id=?
+2025-11-05 10:19:17 [http-nio-8082-exec-7] DEBUG c.e.w.service.TransactionService - Checking limits for wallet 4 [CREDIT]: 2025-11-04T18:30 - 2025-11-05T18:29:59.999999999
+2025-11-05 10:19:17 [http-nio-8082-exec-7] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:19:17 [http-nio-8082-exec-7] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:19:17 [http-nio-8082-exec-7] INFO  c.e.w.service.TransactionService - CREDIT transaction within limits. Daily total: 5000.00, Monthly total: 5000.00
+2025-11-05 10:19:17 [http-nio-8082-exec-7] DEBUG org.hibernate.SQL - insert into transactions (amount,description,timestamp,type,wallet_id) values (?,?,?,?,?)
+2025-11-05 10:19:17 [http-nio-8082-exec-7] INFO  c.e.w.service.WalletService - Credit successful - walletId: 4, new balance: 15000.00
+2025-11-05 10:19:17 [http-nio-8082-exec-7] DEBUG org.hibernate.SQL - update wallets set balance=?,user_id=?,version=?,wallet_name=? where id=? and version=?
+2025-11-05 10:19:28 [http-nio-8082-exec-8] INFO  c.e.w.service.TransactionService - Fetching transactions for wallet ID 4
+2025-11-05 10:19:28 [http-nio-8082-exec-8] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0 where w1_0.id=?
+2025-11-05 10:19:28 [http-nio-8082-exec-8] DEBUG org.hibernate.SQL - select t1_0.id,t1_0.amount,t1_0.description,t1_0.timestamp,t1_0.type,t1_0.wallet_id from transactions t1_0 left join wallets w1_0 on w1_0.id=t1_0.wallet_id where w1_0.id=?
+2025-11-05 10:19:38 [http-nio-8082-exec-9] INFO  c.e.w.service.TransactionService - Fetching transactions for user 52 from 04-11-2025 to 05-11-2025 with type null
+2025-11-05 10:19:38 [http-nio-8082-exec-9] DEBUG org.hibernate.SQL - select t1_0.id,t1_0.amount,t1_0.description,t1_0.timestamp,t1_0.type,t1_0.wallet_id from transactions t1_0 join wallets w1_0 on w1_0.id=t1_0.wallet_id where w1_0.user_id=? and t1_0.timestamp between ? and ? and (? is null or t1_0.type=?) order by t1_0.timestamp desc
+2025-11-05 10:27:02 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-05 10:27:02 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-11-05 10:27:02 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-05 10:27:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-05 10:27:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-05 10:27:34 [Test worker] INFO  c.e.w.WalletServiceApplicationTests - Starting WalletServiceApplicationTests using Java 21.0.8 with PID 18262 (started by shubhamkumar in /Users/shubhamkumar/Desktop/DigitalWalletSystem/wallet-service)
+2025-11-05 10:27:34 [Test worker] DEBUG c.e.w.WalletServiceApplicationTests - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-11-05 10:27:34 [Test worker] INFO  c.e.w.WalletServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-11-05 10:27:34 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-05 10:27:34 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31 ms. Found 2 JPA repository interfaces.
+2025-11-05 10:27:35 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-05 10:27:35 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-11-05 10:27:35 [Test worker] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-05 10:27:35 [Test worker] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-05 10:27:35 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-05 10:27:35 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1e95f584
+2025-11-05 10:27:35 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-05 10:27:35 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-05 10:27:35 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-05 10:27:35 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-05 10:27:35 [Test worker] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-05 10:27:36 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-05 10:27:36 [Test worker] INFO  c.e.w.WalletServiceApplicationTests - Started WalletServiceApplicationTests in 2.488 seconds (process running for 3.131)
+2025-11-05 10:27:37 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-05 10:27:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-05 10:27:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-05 10:27:42 [main] INFO  c.e.w.WalletServiceApplication - Starting WalletServiceApplication using Java 21.0.8 with PID 18286 (/Users/shubhamkumar/Desktop/DigitalWalletSystem/wallet-service/build/classes/java/main started by shubhamkumar in /Users/shubhamkumar/Desktop/DigitalWalletSystem/wallet-service)
+2025-11-05 10:27:42 [main] DEBUG c.e.w.WalletServiceApplication - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-11-05 10:27:42 [main] INFO  c.e.w.WalletServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-05 10:27:42 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-05 10:27:42 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30 ms. Found 2 JPA repository interfaces.
+2025-11-05 10:27:42 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2025-11-05 10:27:42 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-05 10:27:42 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-11-05 10:27:42 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-05 10:27:42 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 495 ms
+2025-11-05 10:27:42 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-05 10:27:42 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-11-05 10:27:42 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-05 10:27:42 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-05 10:27:42 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-05 10:27:43 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7c0de229
+2025-11-05 10:27:43 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-05 10:27:43 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-05 10:27:43 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-05 10:27:43 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-05 10:27:43 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-05 10:27:44 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-05 10:27:44 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
+2025-11-05 10:27:44 [main] INFO  c.e.w.WalletServiceApplication - Started WalletServiceApplication in 2.494 seconds (process running for 2.677)
+2025-11-05 10:28:39 [http-nio-8082-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-05 10:28:39 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-05 10:28:39 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-11-05 10:28:39 [http-nio-8082-exec-1] DEBUG org.hibernate.SQL - insert into wallets (balance,user_id,version,wallet_name) values (?,?,?,?)
+2025-11-05 10:28:48 [http-nio-8082-exec-3] INFO  c.e.w.service.WalletService - Fetching all wallets
+2025-11-05 10:28:48 [http-nio-8082-exec-3] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0
+2025-11-05 10:28:48 [http-nio-8082-exec-3] DEBUG c.e.w.service.WalletService - Total wallets fetched: 3
+2025-11-05 10:29:32 [http-nio-8082-exec-5] INFO  c.e.w.service.WalletService - Fetching all wallets
+2025-11-05 10:29:32 [http-nio-8082-exec-5] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0
+2025-11-05 10:29:32 [http-nio-8082-exec-5] DEBUG c.e.w.service.WalletService - Total wallets fetched: 3
+2025-11-05 10:29:46 [http-nio-8082-exec-6] DEBUG org.hibernate.SQL - insert into wallets (balance,user_id,version,wallet_name) values (?,?,?,?)
+2025-11-05 10:29:53 [http-nio-8082-exec-7] INFO  c.e.w.service.WalletService - Fetching all wallets
+2025-11-05 10:29:53 [http-nio-8082-exec-7] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0
+2025-11-05 10:29:53 [http-nio-8082-exec-7] DEBUG c.e.w.service.WalletService - Total wallets fetched: 4
+2025-11-05 10:30:11 [http-nio-8082-exec-8] INFO  c.e.w.service.WalletService - Debit request - walletId: 4, amount: 5000, description: rent
+2025-11-05 10:30:11 [http-nio-8082-exec-8] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0 where w1_0.id=?
+2025-11-05 10:30:11 [http-nio-8082-exec-8] DEBUG c.e.w.service.TransactionService - Checking limits for wallet 4 [DEBIT]: 2025-11-04T18:30 - 2025-11-05T18:29:59.999999999
+2025-11-05 10:30:11 [http-nio-8082-exec-8] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:30:11 [http-nio-8082-exec-8] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:30:11 [http-nio-8082-exec-8] INFO  c.e.w.service.TransactionService - DEBIT transaction within limits. Daily total: 0.00, Monthly total: 0.00
+2025-11-05 10:30:11 [http-nio-8082-exec-8] DEBUG org.hibernate.SQL - insert into transactions (amount,description,timestamp,type,wallet_id) values (?,?,?,?,?)
+2025-11-05 10:30:11 [http-nio-8082-exec-8] INFO  c.e.w.service.WalletService - Debit successful - walletId: 4, new balance: 10000.00
+2025-11-05 10:30:11 [http-nio-8082-exec-8] DEBUG org.hibernate.SQL - update wallets set balance=?,user_id=?,version=?,wallet_name=? where id=? and version=?
+2025-11-05 10:30:19 [http-nio-8082-exec-9] INFO  c.e.w.service.WalletService - Credit request - walletId: 4, amount: 5000, description: salary
+2025-11-05 10:30:19 [http-nio-8082-exec-9] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0 where w1_0.id=?
+2025-11-05 10:30:19 [http-nio-8082-exec-9] DEBUG c.e.w.service.TransactionService - Checking limits for wallet 4 [CREDIT]: 2025-11-04T18:30 - 2025-11-05T18:29:59.999999999
+2025-11-05 10:30:19 [http-nio-8082-exec-9] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:30:19 [http-nio-8082-exec-9] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:30:19 [http-nio-8082-exec-9] INFO  c.e.w.service.TransactionService - CREDIT transaction within limits. Daily total: 0.00, Monthly total: 0.00
+2025-11-05 10:30:19 [http-nio-8082-exec-9] DEBUG org.hibernate.SQL - insert into transactions (amount,description,timestamp,type,wallet_id) values (?,?,?,?,?)
+2025-11-05 10:30:19 [http-nio-8082-exec-9] INFO  c.e.w.service.WalletService - Credit successful - walletId: 4, new balance: 15000.00
+2025-11-05 10:30:19 [http-nio-8082-exec-9] DEBUG org.hibernate.SQL - update wallets set balance=?,user_id=?,version=?,wallet_name=? where id=? and version=?
+2025-11-05 10:30:26 [http-nio-8082-exec-10] INFO  c.e.w.service.TransactionService - Fetching transactions for wallet ID 4
+2025-11-05 10:30:26 [http-nio-8082-exec-10] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0 where w1_0.id=?
+2025-11-05 10:30:26 [http-nio-8082-exec-10] DEBUG org.hibernate.SQL - select t1_0.id,t1_0.amount,t1_0.description,t1_0.timestamp,t1_0.type,t1_0.wallet_id from transactions t1_0 left join wallets w1_0 on w1_0.id=t1_0.wallet_id where w1_0.id=?
+2025-11-05 10:30:33 [http-nio-8082-exec-1] INFO  c.e.w.service.TransactionService - Fetching transactions for user 52 from 04-11-2025 to 05-11-2025 with type null
+2025-11-05 10:30:33 [http-nio-8082-exec-1] DEBUG org.hibernate.SQL - select t1_0.id,t1_0.amount,t1_0.description,t1_0.timestamp,t1_0.type,t1_0.wallet_id from transactions t1_0 join wallets w1_0 on w1_0.id=t1_0.wallet_id where w1_0.user_id=? and t1_0.timestamp between ? and ? and (? is null or t1_0.type=?) order by t1_0.timestamp desc
+2025-11-05 10:30:42 [http-nio-8082-exec-2] INFO  c.e.w.service.TransactionService - Fetching transactions for user 4 from 04-11-2025 to 05-11-2025 with type null
+2025-11-05 10:30:42 [http-nio-8082-exec-2] DEBUG org.hibernate.SQL - select t1_0.id,t1_0.amount,t1_0.description,t1_0.timestamp,t1_0.type,t1_0.wallet_id from transactions t1_0 join wallets w1_0 on w1_0.id=t1_0.wallet_id where w1_0.user_id=? and t1_0.timestamp between ? and ? and (? is null or t1_0.type=?) order by t1_0.timestamp desc
+2025-11-05 10:34:28 [http-nio-8082-exec-4] INFO  c.e.w.service.WalletService - Fetching all wallets
+2025-11-05 10:34:28 [http-nio-8082-exec-4] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0
+2025-11-05 10:34:28 [http-nio-8082-exec-4] DEBUG c.e.w.service.WalletService - Total wallets fetched: 4
+2025-11-05 10:36:12 [http-nio-8082-exec-7] ERROR c.e.w.e.GlobalExceptionHandler - Unhandled exception: 
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/wallets.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-11-05 10:36:22 [http-nio-8082-exec-10] ERROR c.e.w.e.GlobalExceptionHandler - Unhandled exception: 
+org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.handleNoMatch(RequestMappingInfoHandlerMapping.java:267)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lookupHandlerMethod(AbstractHandlerMethodMapping.java:441)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.getHandlerInternal(AbstractHandlerMethodMapping.java:382)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:127)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:68)
+	at org.springframework.web.servlet.handler.AbstractHandlerMapping.getHandler(AbstractHandlerMapping.java:509)
+	at org.springframework.web.servlet.DispatcherServlet.getHandler(DispatcherServlet.java:1284)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1065)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1774)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-11-05 10:36:49 [http-nio-8082-exec-1] INFO  c.e.w.service.WalletService - Debit request - walletId: 4, amount: 2000, description: null
+2025-11-05 10:36:49 [http-nio-8082-exec-1] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0 where w1_0.id=?
+2025-11-05 10:36:49 [http-nio-8082-exec-1] DEBUG c.e.w.service.TransactionService - Checking limits for wallet 4 [DEBIT]: 2025-11-04T18:30 - 2025-11-05T18:29:59.999999999
+2025-11-05 10:36:49 [http-nio-8082-exec-1] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:36:49 [http-nio-8082-exec-1] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:36:49 [http-nio-8082-exec-1] INFO  c.e.w.service.TransactionService - DEBIT transaction within limits. Daily total: 5000.00, Monthly total: 5000.00
+2025-11-05 10:36:49 [http-nio-8082-exec-1] DEBUG org.hibernate.SQL - insert into transactions (amount,description,timestamp,type,wallet_id) values (?,?,?,?,?)
+2025-11-05 10:36:49 [http-nio-8082-exec-1] INFO  c.e.w.service.WalletService - Debit successful - walletId: 4, new balance: 13000.00
+2025-11-05 10:36:49 [http-nio-8082-exec-1] DEBUG org.hibernate.SQL - update wallets set balance=?,user_id=?,version=?,wallet_name=? where id=? and version=?
+2025-11-05 10:36:49 [http-nio-8082-exec-1] INFO  c.e.w.service.WalletService - Credit request - walletId: 3, amount: 2000, description: null
+2025-11-05 10:36:49 [http-nio-8082-exec-1] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0 where w1_0.id=?
+2025-11-05 10:36:49 [http-nio-8082-exec-1] DEBUG c.e.w.service.TransactionService - Checking limits for wallet 3 [CREDIT]: 2025-11-04T18:30 - 2025-11-05T18:29:59.999999999
+2025-11-05 10:36:49 [http-nio-8082-exec-1] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:36:49 [http-nio-8082-exec-1] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:36:49 [http-nio-8082-exec-1] INFO  c.e.w.service.TransactionService - CREDIT transaction within limits. Daily total: 0.00, Monthly total: 0.00
+2025-11-05 10:36:49 [http-nio-8082-exec-1] DEBUG org.hibernate.SQL - insert into transactions (amount,description,timestamp,type,wallet_id) values (?,?,?,?,?)
+2025-11-05 10:36:49 [http-nio-8082-exec-1] INFO  c.e.w.service.WalletService - Credit successful - walletId: 3, new balance: 2000.00
+2025-11-05 10:36:49 [http-nio-8082-exec-1] DEBUG org.hibernate.SQL - update wallets set balance=?,user_id=?,version=?,wallet_name=? where id=? and version=?
+2025-11-05 10:37:04 [http-nio-8082-exec-3] INFO  c.e.w.service.WalletService - Fetching all wallets
+2025-11-05 10:37:04 [http-nio-8082-exec-3] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0
+2025-11-05 10:37:04 [http-nio-8082-exec-3] DEBUG c.e.w.service.WalletService - Total wallets fetched: 4
+2025-11-05 10:38:56 [http-nio-8082-exec-4] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0 where w1_0.balance>?
+2025-11-05 10:51:22 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-05 10:51:22 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-11-05 10:51:22 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-05 10:51:22 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-05 10:51:22 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-05 10:51:37 [Test worker] INFO  c.e.w.WalletServiceApplicationTests - Starting WalletServiceApplicationTests using Java 21.0.8 with PID 19398 (started by shubhamkumar in /Users/shubhamkumar/Desktop/DigitalWalletSystem/wallet-service)
+2025-11-05 10:51:37 [Test worker] DEBUG c.e.w.WalletServiceApplicationTests - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-11-05 10:51:37 [Test worker] INFO  c.e.w.WalletServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-11-05 10:51:37 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-05 10:51:37 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 2 JPA repository interfaces.
+2025-11-05 10:51:37 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-05 10:51:37 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-11-05 10:51:37 [Test worker] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-05 10:51:37 [Test worker] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-05 10:51:37 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-05 10:51:38 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3dded90a
+2025-11-05 10:51:38 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-05 10:51:38 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-05 10:51:38 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-05 10:51:38 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-05 10:51:38 [Test worker] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-05 10:51:39 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-05 10:51:39 [Test worker] INFO  c.e.w.WalletServiceApplicationTests - Started WalletServiceApplicationTests in 2.631 seconds (process running for 3.29)
+2025-11-05 10:51:40 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-05 10:51:40 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-05 10:51:40 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-05 10:51:45 [main] INFO  c.e.w.WalletServiceApplication - Starting WalletServiceApplication using Java 21.0.8 with PID 19426 (/Users/shubhamkumar/Desktop/DigitalWalletSystem/wallet-service/build/classes/java/main started by shubhamkumar in /Users/shubhamkumar/Desktop/DigitalWalletSystem/wallet-service)
+2025-11-05 10:51:45 [main] DEBUG c.e.w.WalletServiceApplication - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-11-05 10:51:45 [main] INFO  c.e.w.WalletServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-05 10:51:45 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-05 10:51:45 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 2 JPA repository interfaces.
+2025-11-05 10:51:45 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2025-11-05 10:51:45 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-05 10:51:45 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-11-05 10:51:46 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-05 10:51:46 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 518 ms
+2025-11-05 10:51:46 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-05 10:51:46 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-11-05 10:51:46 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-05 10:51:46 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-05 10:51:46 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-05 10:51:46 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3f0c6b3c
+2025-11-05 10:51:46 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-05 10:51:46 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-05 10:51:46 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-05 10:51:46 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-05 10:51:46 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-05 10:51:47 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-05 10:51:47 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
+2025-11-05 10:51:47 [main] INFO  c.e.w.WalletServiceApplication - Started WalletServiceApplication in 2.526 seconds (process running for 2.691)
+2025-11-05 10:52:06 [http-nio-8082-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-05 10:52:06 [http-nio-8082-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-05 10:52:06 [http-nio-8082-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2025-11-05 10:52:06 [http-nio-8082-exec-2] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0 where w1_0.balance>?
+2025-11-05 10:53:01 [http-nio-8082-exec-3] DEBUG org.hibernate.SQL - insert into wallets (balance,user_id,version,wallet_name) values (?,?,?,?)
+2025-11-05 10:53:06 [http-nio-8082-exec-4] INFO  c.e.w.service.WalletService - Fetching all wallets
+2025-11-05 10:53:06 [http-nio-8082-exec-4] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0
+2025-11-05 10:53:06 [http-nio-8082-exec-4] DEBUG c.e.w.service.WalletService - Total wallets fetched: 3
+2025-11-05 10:53:20 [http-nio-8082-exec-5] DEBUG org.hibernate.SQL - insert into wallets (balance,user_id,version,wallet_name) values (?,?,?,?)
+2025-11-05 10:53:24 [http-nio-8082-exec-6] INFO  c.e.w.service.WalletService - Fetching all wallets
+2025-11-05 10:53:24 [http-nio-8082-exec-6] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0
+2025-11-05 10:53:24 [http-nio-8082-exec-6] DEBUG c.e.w.service.WalletService - Total wallets fetched: 4
+2025-11-05 10:53:32 [http-nio-8082-exec-7] INFO  c.e.w.service.WalletService - Debit request - walletId: 4, amount: 5000, description: rent
+2025-11-05 10:53:32 [http-nio-8082-exec-7] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0 where w1_0.id=?
+2025-11-05 10:53:32 [http-nio-8082-exec-7] DEBUG c.e.w.service.TransactionService - Checking limits for wallet 4 [DEBIT]: 2025-11-04T18:30 - 2025-11-05T18:29:59.999999999
+2025-11-05 10:53:32 [http-nio-8082-exec-7] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:53:32 [http-nio-8082-exec-7] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:53:32 [http-nio-8082-exec-7] INFO  c.e.w.service.TransactionService - DEBIT transaction within limits. Daily total: 0.00, Monthly total: 0.00
+2025-11-05 10:53:32 [http-nio-8082-exec-7] DEBUG org.hibernate.SQL - insert into transactions (amount,description,timestamp,type,wallet_id) values (?,?,?,?,?)
+2025-11-05 10:53:32 [http-nio-8082-exec-7] INFO  c.e.w.service.WalletService - Debit successful - walletId: 4, new balance: 10000.00
+2025-11-05 10:53:32 [http-nio-8082-exec-7] DEBUG org.hibernate.SQL - update wallets set balance=?,user_id=?,version=?,wallet_name=? where id=? and version=?
+2025-11-05 10:53:35 [http-nio-8082-exec-9] INFO  c.e.w.service.WalletService - Credit request - walletId: 4, amount: 5000, description: salary
+2025-11-05 10:53:35 [http-nio-8082-exec-9] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0 where w1_0.id=?
+2025-11-05 10:53:35 [http-nio-8082-exec-9] DEBUG c.e.w.service.TransactionService - Checking limits for wallet 4 [CREDIT]: 2025-11-04T18:30 - 2025-11-05T18:29:59.999999999
+2025-11-05 10:53:35 [http-nio-8082-exec-9] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:53:35 [http-nio-8082-exec-9] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:53:35 [http-nio-8082-exec-9] INFO  c.e.w.service.TransactionService - CREDIT transaction within limits. Daily total: 0.00, Monthly total: 0.00
+2025-11-05 10:53:35 [http-nio-8082-exec-9] DEBUG org.hibernate.SQL - insert into transactions (amount,description,timestamp,type,wallet_id) values (?,?,?,?,?)
+2025-11-05 10:53:35 [http-nio-8082-exec-9] INFO  c.e.w.service.WalletService - Credit successful - walletId: 4, new balance: 15000.00
+2025-11-05 10:53:35 [http-nio-8082-exec-9] DEBUG org.hibernate.SQL - update wallets set balance=?,user_id=?,version=?,wallet_name=? where id=? and version=?
+2025-11-05 10:53:41 [http-nio-8082-exec-10] INFO  c.e.w.service.TransactionService - Fetching transactions for wallet ID 4
+2025-11-05 10:53:41 [http-nio-8082-exec-10] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0 where w1_0.id=?
+2025-11-05 10:53:41 [http-nio-8082-exec-10] DEBUG org.hibernate.SQL - select t1_0.id,t1_0.amount,t1_0.description,t1_0.timestamp,t1_0.type,t1_0.wallet_id from transactions t1_0 left join wallets w1_0 on w1_0.id=t1_0.wallet_id where w1_0.id=?
+2025-11-05 10:53:47 [http-nio-8082-exec-1] INFO  c.e.w.service.TransactionService - Fetching transactions for user 4 from 04-11-2025 to 05-11-2025 with type null
+2025-11-05 10:53:47 [http-nio-8082-exec-1] DEBUG org.hibernate.SQL - select t1_0.id,t1_0.amount,t1_0.description,t1_0.timestamp,t1_0.type,t1_0.wallet_id from transactions t1_0 join wallets w1_0 on w1_0.id=t1_0.wallet_id where w1_0.user_id=? and t1_0.timestamp between ? and ? and (? is null or t1_0.type=?) order by t1_0.timestamp desc
+2025-11-05 10:53:54 [http-nio-8082-exec-2] INFO  c.e.w.service.WalletService - Debit request - walletId: 4, amount: 2000, description: null
+2025-11-05 10:53:54 [http-nio-8082-exec-2] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0 where w1_0.id=?
+2025-11-05 10:53:54 [http-nio-8082-exec-2] DEBUG c.e.w.service.TransactionService - Checking limits for wallet 4 [DEBIT]: 2025-11-04T18:30 - 2025-11-05T18:29:59.999999999
+2025-11-05 10:53:54 [http-nio-8082-exec-2] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:53:54 [http-nio-8082-exec-2] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:53:54 [http-nio-8082-exec-2] INFO  c.e.w.service.TransactionService - DEBIT transaction within limits. Daily total: 5000.00, Monthly total: 5000.00
+2025-11-05 10:53:54 [http-nio-8082-exec-2] DEBUG org.hibernate.SQL - insert into transactions (amount,description,timestamp,type,wallet_id) values (?,?,?,?,?)
+2025-11-05 10:53:54 [http-nio-8082-exec-2] INFO  c.e.w.service.WalletService - Debit successful - walletId: 4, new balance: 13000.00
+2025-11-05 10:53:54 [http-nio-8082-exec-2] DEBUG org.hibernate.SQL - update wallets set balance=?,user_id=?,version=?,wallet_name=? where id=? and version=?
+2025-11-05 10:53:54 [http-nio-8082-exec-2] INFO  c.e.w.service.WalletService - Credit request - walletId: 3, amount: 2000, description: null
+2025-11-05 10:53:54 [http-nio-8082-exec-2] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0 where w1_0.id=?
+2025-11-05 10:53:54 [http-nio-8082-exec-2] DEBUG c.e.w.service.TransactionService - Checking limits for wallet 3 [CREDIT]: 2025-11-04T18:30 - 2025-11-05T18:29:59.999999999
+2025-11-05 10:53:54 [http-nio-8082-exec-2] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:53:54 [http-nio-8082-exec-2] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.wallet_id=? and t1_0.type=? and t1_0.timestamp between ? and ?
+2025-11-05 10:53:54 [http-nio-8082-exec-2] INFO  c.e.w.service.TransactionService - CREDIT transaction within limits. Daily total: 0.00, Monthly total: 0.00
+2025-11-05 10:53:54 [http-nio-8082-exec-2] DEBUG org.hibernate.SQL - insert into transactions (amount,description,timestamp,type,wallet_id) values (?,?,?,?,?)
+2025-11-05 10:53:54 [http-nio-8082-exec-2] INFO  c.e.w.service.WalletService - Credit successful - walletId: 3, new balance: 2000.00
+2025-11-05 10:53:54 [http-nio-8082-exec-2] DEBUG org.hibernate.SQL - update wallets set balance=?,user_id=?,version=?,wallet_name=? where id=? and version=?
+2025-11-05 10:54:02 [http-nio-8082-exec-3] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0 where w1_0.balance>?
+2025-11-05 11:01:15 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=59s192ms).
+2025-11-05 11:03:15 [http-nio-8082-exec-5] INFO  c.e.w.service.WalletService - Debit request - walletId: 4, amount: 15000, description: rent
+2025-11-05 11:03:15 [http-nio-8082-exec-5] DEBUG org.hibernate.SQL - select w1_0.id,w1_0.balance,w1_0.user_id,w1_0.version,w1_0.wallet_name from wallets w1_0 where w1_0.id=?
+2025-11-05 11:03:15 [http-nio-8082-exec-5] WARN  c.e.w.service.WalletService - Insufficient balance in wallet 4: available 13000.00, requested 15000
+2025-11-05 11:17:50 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-05 11:17:50 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-11-05 11:17:50 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-05 11:17:50 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-05 11:17:50 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-05 18:08:03 [Test worker] INFO  c.e.w.WalletServiceApplicationTests - Starting WalletServiceApplicationTests using Java 21.0.8 with PID 34129 (started by shubhamkumar in /Users/shubhamkumar/Desktop/DigitalWalletSystem/wallet-service)
+2025-11-05 18:08:03 [Test worker] DEBUG c.e.w.WalletServiceApplicationTests - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-11-05 18:08:03 [Test worker] INFO  c.e.w.WalletServiceApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-11-05 18:08:04 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-05 18:08:04 [Test worker] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 47 ms. Found 2 JPA repository interfaces.
+2025-11-05 18:08:04 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-05 18:08:04 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-11-05 18:08:04 [Test worker] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-05 18:08:04 [Test worker] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-05 18:08:04 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-05 18:08:04 [Test worker] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@38826984
+2025-11-05 18:08:04 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-05 18:08:04 [Test worker] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-05 18:08:05 [Test worker] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-05 18:08:05 [Test worker] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-05 18:08:05 [Test worker] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-05 18:08:05 [Test worker] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-05 18:08:06 [Test worker] INFO  c.e.w.WalletServiceApplicationTests - Started WalletServiceApplicationTests in 2.597 seconds (process running for 3.235)
+2025-11-05 18:08:06 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-05 18:08:06 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-05 18:08:06 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-05 18:08:12 [main] INFO  c.e.w.WalletServiceApplication - Starting WalletServiceApplication using Java 21.0.8 with PID 34150 (/Users/shubhamkumar/Desktop/DigitalWalletSystem/wallet-service/build/classes/java/main started by shubhamkumar in /Users/shubhamkumar/Desktop/DigitalWalletSystem/wallet-service)
+2025-11-05 18:08:12 [main] DEBUG c.e.w.WalletServiceApplication - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-11-05 18:08:12 [main] INFO  c.e.w.WalletServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-05 18:08:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-05 18:08:12 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31 ms. Found 2 JPA repository interfaces.
+2025-11-05 18:08:13 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2025-11-05 18:08:13 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-05 18:08:13 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-11-05 18:08:13 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-05 18:08:13 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 506 ms
+2025-11-05 18:08:13 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-05 18:08:13 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-11-05 18:08:13 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-05 18:08:13 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-05 18:08:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-05 18:08:13 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7bf65e0f
+2025-11-05 18:08:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-05 18:08:13 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-05 18:08:13 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-05 18:08:13 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-05 18:08:13 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-05 18:08:14 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-05 18:08:14 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
+2025-11-05 18:08:14 [main] INFO  c.e.w.WalletServiceApplication - Started WalletServiceApplication in 2.487 seconds (process running for 2.671)
+2025-11-05 18:08:23 [http-nio-8082-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-05 18:08:23 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-05 18:08:23 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2025-11-05 18:08:23 [http-nio-8082-exec-1] DEBUG org.hibernate.SQL - insert into wallets (balance,user_id,version,wallet_name) values (?,?,?,?)
+2025-11-05 18:20:59 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-05 18:20:59 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-11-05 18:20:59 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-05 18:21:00 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-05 18:21:00 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-11-05 18:21:25 [main] INFO  c.e.w.WalletServiceApplication - Starting WalletServiceApplication using Java 21.0.8 with PID 34805 (/Users/shubhamkumar/Desktop/DigitalWalletSystem/wallet-service/build/classes/java/main started by shubhamkumar in /Users/shubhamkumar/Desktop/DigitalWalletSystem/wallet-service)
+2025-11-05 18:21:25 [main] DEBUG c.e.w.WalletServiceApplication - Running with Spring Boot v3.5.7, Spring v6.2.12
+2025-11-05 18:21:25 [main] INFO  c.e.w.WalletServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-05 18:21:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-05 18:21:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31 ms. Found 2 JPA repository interfaces.
+2025-11-05 18:21:25 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2025-11-05 18:21:25 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-05 18:21:25 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2025-11-05 18:21:25 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-05 18:21:25 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 527 ms
+2025-11-05 18:21:25 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-05 18:21:25 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.33.Final
+2025-11-05 18:21:25 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-11-05 18:21:25 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-05 18:21:25 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-11-05 18:21:25 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3f0c6b3c
+2025-11-05 18:21:25 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-11-05 18:21:25 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 9.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-05 18:21:26 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-05 18:21:26 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-05 18:21:26 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-11-05 18:21:27 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-05 18:21:27 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
+2025-11-05 18:21:27 [main] INFO  c.e.w.WalletServiceApplication - Started WalletServiceApplication in 2.598 seconds (process running for 2.778)
+2025-11-05 18:37:22 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m42s402ms).
+2025-11-05 19:08:08 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m45s843ms).
+2025-11-05 19:36:27 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=28m18s593ms).
+2025-11-05 20:14:36 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=38m9s202ms).
+2025-11-05 20:29:36 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m30s608ms).

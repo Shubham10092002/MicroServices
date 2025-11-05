@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="DigitalWalletSystem.user-service" options="-parameters" />
+      <module name="DigitalWalletSystem.user-service.main" options="-parameters" />
+      <module name="DigitalWalletSystem.user-service.test" options="-parameters" />
+      <module name="DigitalWalletSystem.wallet-service" options="-parameters" />
+      <module name="DigitalWalletSystem.wallet-service.main" options="-parameters" />
+      <module name="DigitalWalletSystem.wallet-service.test" options="-parameters" />
+      <module name="user-service" options="-parameters" />
+      <module name="user-service.main" options="-parameters" />
+      <module name="user-service.test" options="-parameters" />
+      <module name="wallet-service" options="-parameters" />
+      <module name="wallet-service.main" options="-parameters" />
+      <module name="wallet-service.test" options="-parameters" />
+    </option>
+  </component>
+</project>
