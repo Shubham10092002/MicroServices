@@ -1,7 +1,9 @@
 package com.example.user_service.controller;
 
-import com.example.user_service.model.User;
+import com.example.user_service.dto.LoginRequestDTO;
+import com.example.user_service.dto.UserDTO;
 import com.example.user_service.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,13 +17,15 @@ public class AuthController {
         this.userService = userService;
     }
 
+    // ✅ Register user using DTO
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody User user) {
-        return userService.registerUser(user);
+    public ResponseEntity<?> register(@Valid @RequestBody UserDTO userDTO) {
+        return userService.registerUser(userDTO);
     }
 
+    // ✅ Login user using DTO
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody User user) {
-        return userService.loginUser(user);
+    public ResponseEntity<?> login(@Valid @RequestBody LoginRequestDTO loginDTO) {
+        return userService.loginUser(loginDTO);
     }
 }

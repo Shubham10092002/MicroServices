@@ -36,20 +36,19 @@ public class UserController {
 //    }
 
     // ✅ Create user (admin or open registration)
-    @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> createUser(@Valid @RequestBody UserDTO userDTO, BindingResult result) {
-        Object response = userService.createUser(userDTO, result);
-
-        if (response instanceof String) {
-            return ResponseEntity.badRequest().body(response);
-        } else if (response instanceof Map<?, ?>) {
-            return ResponseEntity.badRequest().body(response);
-        }
-
-        return ResponseEntity.ok(response);
-    }
-
+//    @PostMapping
+//    @PreAuthorize("hasRole('ADMIN')")
+//    public ResponseEntity<?> createUser(@Valid @RequestBody UserDTO userDTO, BindingResult result) {
+//        Object response = userService.createUser(userDTO, result);
+//
+//        if (response instanceof String) {
+//            return ResponseEntity.badRequest().body(response);
+//        } else if (response instanceof Map<?, ?>) {
+//            return ResponseEntity.badRequest().body(response);
+//        }
+//
+//        return ResponseEntity.ok(response);
+//    }
 
 
     @GetMapping("/{id}")

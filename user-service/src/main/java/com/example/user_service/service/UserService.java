@@ -5,25 +5,17 @@ import com.example.user_service.dto.*;
 import com.example.user_service.model.User;
 import com.example.user_service.repository.UserRepository;
 import com.example.user_service.security.JwtUtil;
-import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.validation.BindingResult;
 
-import java.math.BigDecimal;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Map;
 
 @Service
-@Transactional
 public class UserService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserService.class);
@@ -47,120 +39,76 @@ public class UserService {
     }
 
     // ============================================================
-    // 🔹 NEW: USER REGISTRATION LOGIC
+    // 🔹 Register New User Using UserDTO
     // ============================================================
-    public ResponseEntity<?> registerUser(User user) {
-        if (userRepository.findByUsername(user.getUsername()).isPresent()) {
-            logger.warn("Username '{}' already exists", user.getUsername());
+    public ResponseEntity<?> registerUser(UserDTO userDTO) {
+        logger.info("Register request for username: {}", userDTO.getUsername());
+
+        // Check if username already exists
+        if (userRepository.findByUsername(userDTO.getUsername()).isPresent()) {
             return ResponseEntity.badRequest().body(Map.of("error", "Username already exists"));
         }
 
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        // Create and save new user
+        User user = new User();
+        user.setUsername(userDTO.getUsername());
+        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        user.setRole(userDTO.getRole() != null ? userDTO.getRole() : "USER");
+
         User savedUser = userRepository.save(user);
-        logger.info("✅ User '{}' registered successfully", savedUser.getUsername());
+        logger.info(" User '{}' registered successfully with ID {}", savedUser.getUsername(), savedUser.getId());
+
+        // Create default wallet (JWT not required at registration)
+//        try {
+//            walletClient.createDefaultWalletForUser(savedUser.getId(), savedUser.getUsername(), null);
+//        } catch (Exception e) {
+//            logger.error("⚠️ Wallet creation failed for user {}", savedUser.getId());
+//        }
 
         return ResponseEntity.ok(Map.of(
                 "message", "User registered successfully",
                 "userId", savedUser.getId(),
+                "username", savedUser.getUsername(),
                 "role", savedUser.getRole()
         ));
     }
 
     // ============================================================
-    // 🔹 NEW: USER LOGIN LOGIC
+    // 🔹 Login Using LoginRequestDTO
     // ============================================================
-    public ResponseEntity<?> loginUser(User user) {
-        // Authenticate user credentials
+    public ResponseEntity<?> loginUser(LoginRequestDTO loginDTO) {
+        logger.info("Login attempt by '{}'", loginDTO.getUsername());
+
         authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword())
+                new UsernamePasswordAuthenticationToken(loginDTO.getUsername(), loginDTO.getPassword())
         );
 
-        User existingUser = userRepository.findByUsername(user.getUsername())
+        User existingUser = userRepository.findByUsername(loginDTO.getUsername())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        // Generate JWT token
-        //String token = jwtUtil.generateToken(existingUser.getUsername(), existingUser.getRole());
-        String token = jwtUtil.generateToken(existingUser.getId(), existingUser.getUsername(), existingUser.getRole());
+        // Generate JWT with userId + username + role
+        String token = jwtUtil.generateToken(
+                existingUser.getId(),
+                existingUser.getUsername(),
+                existingUser.getRole()
+        );
 
         logger.info("✅ User '{}' logged in successfully", existingUser.getUsername());
 
         return ResponseEntity.ok(Map.of(
                 "token", token,
+                "userId", existingUser.getId(),
                 "username", existingUser.getUsername(),
                 "role", existingUser.getRole()
         ));
     }
 
-    // ============================================================
-    // 🔹 EXISTING BUSINESS METHODS
-    // ============================================================
-
-    public List<UserResponseDTO> getUsersWithWalletBalanceGreaterThan(BigDecimal threshold) {
-        logger.info("Fetching users with wallet balance greater than {}", threshold);
-
-        List<Wallet> wallets = walletClient.getWalletsWithBalanceGreaterThan(threshold);
-        List<UserResponseDTO> result = new ArrayList<>();
-
-        for (Wallet wallet : wallets) {
-            userRepository.findById(wallet.getUserId()).ifPresent(user ->
-                    result.add(new UserResponseDTO(user, wallet)));
-        }
-
-        return result;
-    }
-
-    public User findByUsername(String username) {
-        return userRepository.findByUsername(username).orElse(null);
-    }
-
-    public Object createUser(@Valid UserDTO userDTO, BindingResult result) {
-        logger.info("Received request to create user: {}", userDTO.getUsername());
-
-        if (result.hasErrors()) {
-            Map<String, String> errors = new HashMap<>();
-            result.getFieldErrors().forEach(e -> errors.put(e.getField(), e.getDefaultMessage()));
-            return errors;
-        }
-
-        if (userRepository.findByUsername(userDTO.getUsername()).isPresent()) {
-            logger.warn("Username '{}' already exists", userDTO.getUsername());
-            return "Username already exists";
-        }
-
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String jwtToken = null;
-        if (authentication != null && authentication.getCredentials() instanceof String token) {
-            jwtToken = token;
-        }
-
-        User user = new User(userDTO.getUsername(),
-                passwordEncoder.encode(userDTO.getPassword()),
-                userDTO.getRole());
-        User savedUser = userRepository.save(user);
-        logger.info("User created with ID {}", savedUser.getId());
-
-        Wallet wallet = walletClient.createDefaultWalletForUser(savedUser.getId(),
-                savedUser.getUsername(), jwtToken);
-
-        if (wallet == null) {
-            logger.error("Wallet creation failed for user {}", savedUser.getId());
-            return "User created, but wallet creation failed";
-        }
-
-        logger.info("Wallet created successfully for user {}", savedUser.getId());
-        return new UserResponseDTO(savedUser, wallet);
-    }
 
     public UserSummaryDTO getUserById(Long id) {
+        logger.info("Fetching user with ID {}", id);
+
         return userRepository.findById(id)
                 .map(user -> new UserSummaryDTO(user.getId(), user.getUsername()))
                 .orElseThrow(() -> new RuntimeException("User not found with ID " + id));
-    }
-
-    public List<UserSummaryDTO> getAllUsers() {
-        return userRepository.findAll()
-                .stream()
-                .map(user -> new UserSummaryDTO(user.getId(), user.getUsername()))
-                .collect(Collectors.toList());
     }
 }
