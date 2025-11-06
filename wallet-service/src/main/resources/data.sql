@@ -25,7 +25,9 @@ CREATE TABLE transactions (
 -- Insert sample wallets"
 INSERT INTO wallets (wallet_name, balance, user_id, version)
 VALUES ('Default Wallet', 500.00, 1, 0),
-       ('Savings Wallet', 1500.50, 2, 0);
+       ('Savings Wallet', 1500.50, 2, 0),
+       ('saving Wallet', 10000, 3, 0);
+
 
 -- Insert sample transactions
 INSERT INTO transactions (wallet_id, amount, type, description, timestamp)

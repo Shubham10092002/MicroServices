@@ -10,6 +10,6 @@ CREATE TABLE users (
 );
 
 -- Insert sample users
-INSERT INTO users (username, password, role) VALUES ('shubham', 'password123',"USER");
-INSERT INTO users (username, password, role) VALUES ('alice', 'alicepass', "USER");
-INSERT INTO users (username, password, role) VALUES ('bob', 'bobpass', "ADMIN");
+INSERT INTO users (username, password, role) VALUES ('shubham', '$2a$10$/d2ImF6VIzmfOGJksiE1YeZIzEPcdfchWVTGFaPK0mT7rZGCl1Xu.',"USER");
+INSERT INTO users (username, password, role) VALUES ('alice', '$2a$10$It9tKsnLnLxI8TuRFFLS7.3aqrTa7vCttkTMZLUv097TE6e5EXhqO', "USER");
+INSERT INTO users (username, password, role) VALUES ('bob', '$2a$10$Vi7OrzEygxLLjkxNbZOU4u0wnQpdvx2J8AXjClyKmqgxK5nE3wYOK', "ADMIN");

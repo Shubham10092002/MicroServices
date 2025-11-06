@@ -1,4 +1,4 @@
-package com.example.user_service.security;
+package com.example.wallet_service.security;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
@@ -10,22 +10,10 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-    private static final String SECRET = "your-256-bit-secret-your-256-bit-secret"; // replace with env var
+    private static final String SECRET = "your-256-bit-secret-your-256-bit-secret"; // same as user-service
     private static final long EXPIRATION_TIME = 86400000; // 1 day
 
     private final Key key = Keys.hmacShaKeyFor(SECRET.getBytes());
-
-    public String generateToken(Long userId, String username, String role) {
-        return Jwts.builder()
-                .setSubject(username)
-                .claim("role", role)
-                .claim("userId", userId) // ✅ Include userId
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
-                .signWith(key, SignatureAlgorithm.HS256)
-                .compact();
-    }
-
 
     public String extractUsername(String token) {
         return parseClaims(token).getSubject();
@@ -33,6 +21,11 @@ public class JwtUtil {
 
     public String extractRole(String token) {
         return (String) parseClaims(token).get("role");
+    }
+
+    public Long extractUserId(String token) {
+        Object userId = parseClaims(token).get("userId");
+        return userId != null ? Long.valueOf(userId.toString()) : null;
     }
 
     public boolean isTokenValid(String token) {
