@@ -2,10 +2,14 @@ package com.example.user_service.client;
 
 import com.example.user_service.dto.CreateWalletDTO;
 import com.example.user_service.dto.Wallet;
+import com.example.user_service.exception.WalletServiceException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
+import org.springframework.web.client.RestClientException;
+import org.springframework.web.client.HttpStatusCodeException;
+
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
@@ -22,35 +26,66 @@ public class WalletClient {
         this.restClient = builder.build();
     }
 
-    // ✅ Call wallet-service to get wallets above threshold
+    //  Fetch wallets with balance greater than threshold
     public List<Wallet> getWalletsWithBalanceGreaterThan(BigDecimal threshold) {
         String url = walletServiceUrl + "/api/wallets/balance-greater/" + threshold;
 
-        Wallet[] wallets = restClient.get()
-                .uri(url)
-                .retrieve()
-                .body(Wallet[].class);
+        try {
+            Wallet[] wallets = restClient.get()
+                    .uri(url)
+                    .retrieve()
+                    .onStatus(status -> status.is4xxClientError() || status.is5xxServerError(), (req, res) -> {
+                        throw new WalletServiceException(
+                                "WALLET_SERVICE_ERROR",
+                                "Wallet service responded with error: " + res.getStatusCode()
+                        );
+                    })
+                    .body(Wallet[].class);
 
-        return wallets != null ? Arrays.asList(wallets) : List.of();
+            return wallets != null ? Arrays.asList(wallets) : List.of();
+
+        } catch (HttpStatusCodeException ex) {
+            throw new WalletServiceException("WALLET_HTTP_ERROR",
+                    "Wallet service error: " + ex.getStatusCode() + " - " + ex.getResponseBodyAsString());
+        } catch (RestClientException ex) {
+            // Handles connection refused, timeouts, etc.
+            throw new WalletServiceException("WALLET_CONNECTION_ERROR",
+                    "Unable to reach wallet service. Reason: " + ex.getMessage());
+        } catch (Exception ex) {
+            throw new WalletServiceException("WALLET_UNKNOWN_ERROR",
+                    "Unexpected wallet client error: " + ex.getMessage());
+        }
     }
 
-    // ✅ Call wallet-service to create default wallet for user
+    //  Create default wallet for user (with full error handling)
 //    public Wallet createDefaultWalletForUser(Long userId, String username, String jwtToken) {
-//        CreateWalletDTO walletDTO = new CreateWalletDTO();
-//        walletDTO.setWalletName("Default Wallet");
-//        walletDTO.setInitialBalance(BigDecimal.ZERO);
+//        String url = walletServiceUrl + "/api/wallets/user/" + userId + "/create-wallet";
+//        CreateWalletDTO walletDTO = new CreateWalletDTO("Default Wallet", BigDecimal.ZERO);
 //
-//        var request = restClient.post()
-//                .uri(walletServiceUrl + "/api/wallets/user/{userId}/create-wallet", userId)
-//                .body(walletDTO);
+//        try {
+//            var request = restClient.post()
+//                    .uri(url)
+//                    .body(walletDTO);
 //
-//        // ✅ Add Authorization header only if token exists
-//        if (jwtToken != null && !jwtToken.isEmpty()) {
-//            request.header("Authorization", "Bearer " + jwtToken);
+//            if (jwtToken != null && !jwtToken.isEmpty()) {
+//                request.header(HttpHeaders.AUTHORIZATION, "Bearer " + jwtToken);
+//            }
+//
+//            return request.retrieve()
+//                    .onStatus(status -> status.is4xxClientError() || status.is5xxServerError(), (req, res) -> {
+//                        throw new WalletServiceException(
+//                                "WALLET_CREATION_FAILED",
+//                                "Wallet creation failed with status: " + res.getStatusCode()
+//                        );
+//                    })
+//                    .body(Wallet.class);
+//
+//        } catch (RestClientException ex) {
+//            throw new WalletServiceException("WALLET_CONNECTION_ERROR",
+//                    "Wallet service unreachable: " + ex.getMessage());
+//        } catch (Exception ex) {
+//            throw new WalletServiceException("WALLET_UNKNOWN_ERROR",
+//                    "Unexpected wallet error: " + ex.getMessage());
 //        }
-//
-//        return request.retrieve().body(Wallet.class);
 //    }
-
-
 }

@@ -27,6 +27,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         this.userRepository = userRepository;
     }
 
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
@@ -39,13 +40,13 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 String username = jwtUtil.extractUsername(token);
                 String role = jwtUtil.extractRole(token);
 
-                // ✅ Fetch full user from DB
+                //  Fetch full user from DB
                 User user = userRepository.findByUsername(username).orElse(null);
 
                 if (user != null) {
                     var authorities = List.of(new SimpleGrantedAuthority("ROLE_" + role));
 
-                    // ✅ Store full User object as principal (not just username)
+                    //  Store full User object as principal (not just username)
                     UsernamePasswordAuthenticationToken authentication =
                             new UsernamePasswordAuthenticationToken(user, null, authorities);
 

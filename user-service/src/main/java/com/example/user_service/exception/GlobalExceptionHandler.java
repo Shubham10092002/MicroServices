@@ -34,6 +34,19 @@ public class GlobalExceptionHandler {
     }
 
 
+    @ExceptionHandler(WalletServiceException.class)
+    public ResponseEntity<Map<String, Object>> handleWalletServiceError(WalletServiceException ex) {
+        Map<String, Object> error = new HashMap<>();
+        error.put("timestamp", LocalDateTime.now());
+        error.put("status", HttpStatus.BAD_GATEWAY.value());
+        error.put("errorCode", "WALLET_SERVICE_ERROR");
+        error.put("message", ex.getMessage());
+
+        return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(error);
+    }
+
+
+
 
     @ExceptionHandler(LimitExceededException.class)
     public ResponseEntity<ErrorResponse> handleLimitExceeded(LimitExceededException ex) {
@@ -86,16 +99,30 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
 
-    @ExceptionHandler(WalletIdNotFoundException.class)
-    public ResponseEntity<Map<String, Object>> handleWalletNotFound(WalletIdNotFoundException ex) {
+    @ExceptionHandler(JwtValidationException.class)
+    public ResponseEntity<Map<String, Object>> handleJwtValidation(JwtValidationException ex) {
         Map<String, Object> error = new HashMap<>();
         error.put("timestamp", LocalDateTime.now());
-        error.put("status", HttpStatus.NOT_FOUND.value());
-        error.put("errorCode", "WALLET_NOT_FOUND");
+        error.put("status", HttpStatus.UNAUTHORIZED.value());
+        error.put("errorCode", ex.getErrorCode());
         error.put("message", ex.getMessage());
 
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
     }
+
+
+
+
+//    @ExceptionHandler(WalletIdNotFoundException.class)
+//    public ResponseEntity<Map<String, Object>> handleWalletNotFound(WalletIdNotFoundException ex) {
+//        Map<String, Object> error = new HashMap<>();
+//        error.put("timestamp", LocalDateTime.now());
+//        error.put("status", HttpStatus.NOT_FOUND.value());
+//        error.put("errorCode", "WALLET_NOT_FOUND");
+//        error.put("message", ex.getMessage());
+//
+//        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+//    }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> handleGenericException(Exception ex) {

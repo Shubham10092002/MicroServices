@@ -17,13 +17,13 @@ public class AuthController {
         this.userService = userService;
     }
 
-    // ✅ Register user using DTO
+    //  Register user using DTO
     @PostMapping("/register")
     public ResponseEntity<?> register(@Valid @RequestBody UserDTO userDTO) {
         return userService.registerUser(userDTO);
     }
 
-    // ✅ Login user using DTO
+    //  Login user using DTO
     @PostMapping("/login")
     public ResponseEntity<?> login(@Valid @RequestBody LoginRequestDTO loginDTO) {
         return userService.loginUser(loginDTO);

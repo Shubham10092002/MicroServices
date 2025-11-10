@@ -34,6 +34,19 @@ public class GlobalExceptionHandler {
     }
 
 
+    @ExceptionHandler(JwtValidationException.class)
+    public ResponseEntity<Map<String, Object>> handleJwtValidation(JwtValidationException ex) {
+        Map<String, Object> error = new HashMap<>();
+        error.put("timestamp", LocalDateTime.now());
+        error.put("status", HttpStatus.UNAUTHORIZED.value());
+        error.put("errorCode", ex.getErrorCode());
+        error.put("message", ex.getMessage());
+
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
+    }
+
+
+
 
     @ExceptionHandler(LimitExceededException.class)
     public ResponseEntity<ErrorResponse> handleLimitExceeded(LimitExceededException ex) {
