@@ -15,6 +15,14 @@ public class CreateWalletDTO {
     @ValidWalletBalance
     private BigDecimal initialBalance;
 
+    public CreateWalletDTO() {}
+
+    // ✅ Convenience constructor for tests
+    public CreateWalletDTO(String walletName, BigDecimal initialBalance) {
+        this.walletName = walletName;
+        this.initialBalance = initialBalance;
+    }
+
     // getters / setters
     public String getWalletName() { return walletName; }
     public void setWalletName(String walletName) { this.walletName = walletName; }

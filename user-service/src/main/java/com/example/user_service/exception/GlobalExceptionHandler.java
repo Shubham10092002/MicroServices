@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,121 +20,160 @@ public class GlobalExceptionHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-    public ResponseEntity<Map<String, Object>> handleTypeMismatch(MethodArgumentTypeMismatchException ex) {
-        String invalidValue = ex.getValue() != null ? ex.getValue().toString() : "null";
-        logger.warn("Invalid ID format: {}", invalidValue, ex);
+    // -------------------------------
+    // 🔹 Validation & Type Mismatch
+    // -------------------------------
 
-        Map<String, Object> error = new HashMap<>();
-        error.put("timestamp", LocalDateTime.now());
-        error.put("status", HttpStatus.BAD_REQUEST.value());
-        error.put("error", "Bad Request");
-        error.put("message", "Invalid ID format: " + invalidValue + " (must be numeric)");
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<ErrorResponse> handleTypeMismatch(MethodArgumentTypeMismatchException ex) {
+        String invalidValue = ex.getValue() != null ? ex.getValue().toString() : "null";
+        logger.warn("Invalid request parameter type: {}", invalidValue, ex);
+
+        ErrorResponse error = new ErrorResponse(
+                LocalDateTime.now(),
+                HttpStatus.BAD_REQUEST.value(),
+                "TYPE_MISMATCH",
+                "Invalid parameter value: " + invalidValue + " (expected numeric or valid type)",
+                null
+        );
 
         return ResponseEntity.badRequest().body(error);
     }
 
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorResponse> handleValidationExceptions(MethodArgumentNotValidException ex) {
+        Map<String, String> fieldErrors = new HashMap<>();
+        ex.getBindingResult().getFieldErrors().forEach(err ->
+                fieldErrors.put(err.getField(), err.getDefaultMessage())
+        );
 
-    @ExceptionHandler(WalletServiceException.class)
-    public ResponseEntity<Map<String, Object>> handleWalletServiceError(WalletServiceException ex) {
-        Map<String, Object> error = new HashMap<>();
-        error.put("timestamp", LocalDateTime.now());
-        error.put("status", HttpStatus.BAD_GATEWAY.value());
-        error.put("errorCode", "WALLET_SERVICE_ERROR");
-        error.put("message", ex.getMessage());
+        ErrorResponse error = new ErrorResponse(
+                LocalDateTime.now(),
+                HttpStatus.BAD_REQUEST.value(),
+                "VALIDATION_ERROR",
+                "Validation failed for one or more fields",
+                fieldErrors.entrySet().stream()
+                        .map(e -> new FieldErrorDetail(e.getKey(), e.getValue()))
+                        .toList()
+        );
 
-        return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(error);
+        return ResponseEntity.badRequest().body(error);
     }
 
+    // -------------------------------
+    // 🔹 Domain-specific Exceptions
+    // -------------------------------
 
-
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleUserNotFound(UserNotFoundException ex) {
+        ErrorResponse error = new ErrorResponse(
+                LocalDateTime.now(),
+                HttpStatus.NOT_FOUND.value(),
+                "USER_NOT_FOUND",
+                ex.getMessage(),
+                null
+        );
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
 
     @ExceptionHandler(LimitExceededException.class)
     public ResponseEntity<ErrorResponse> handleLimitExceeded(LimitExceededException ex) {
         ErrorResponse error = new ErrorResponse(
-                LocalDateTime.now(),                // timestamp
-                HttpStatus.BAD_REQUEST.value(),     // status
-                ex.getErrorCode(),                  // errorCode
-                ex.getMessage(),                    // message
-                null                                // fieldErrors (none for this exception)
+                LocalDateTime.now(),
+                HttpStatus.BAD_REQUEST.value(),
+                ex.getErrorCode(),
+                ex.getMessage(),
+                null
         );
-
-        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+        return ResponseEntity.badRequest().body(error);
     }
 
-
-
-    @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<Map<String, Object>> handleUserNotFound(UserNotFoundException ex) {
-        Map<String, Object> error = new HashMap<>();
-        error.put("timestamp", LocalDateTime.now());
-        error.put("status", HttpStatus.NOT_FOUND.value());
-        error.put("errorCode", "USER_NOT_FOUND");
-        error.put("message", ex.getMessage());
-
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
-    }
-
-    @ExceptionHandler(OptimisticLockException.class)
-    public ResponseEntity<?> handleOptimisticLockException(OptimisticLockException ex) {
-        return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of(
-                "errorCode", "CONFLICT",
-                "reason", "Wallet was modified by another transaction. Please retry."
-        ));
-    }
-
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Map<String, Object>> handleValidationExceptions(MethodArgumentNotValidException ex) {
-        Map<String, Object> errors = new HashMap<>();
-        ex.getBindingResult().getFieldErrors().forEach(error ->
-                errors.put(error.getField(), error.getDefaultMessage())
+    @ExceptionHandler(WalletServiceException.class)
+    public ResponseEntity<ErrorResponse> handleWalletServiceError(WalletServiceException ex) {
+        ErrorResponse error = new ErrorResponse(
+                LocalDateTime.now(),
+                HttpStatus.BAD_GATEWAY.value(),
+                "WALLET_SERVICE_ERROR",
+                ex.getMessage(),
+                null
         );
-
-        Map<String, Object> response = new HashMap<>();
-        response.put("timestamp", LocalDateTime.now());
-        response.put("status", HttpStatus.BAD_REQUEST.value());
-        response.put("errorCode", "VALIDATION_ERROR");
-        response.put("message", "Validation failed for one or more fields");
-        response.put("fieldErrors", errors);
-
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+        return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(error);
     }
 
-    @ExceptionHandler(JwtValidationException.class)
-    public ResponseEntity<Map<String, Object>> handleJwtValidation(JwtValidationException ex) {
-        Map<String, Object> error = new HashMap<>();
-        error.put("timestamp", LocalDateTime.now());
-        error.put("status", HttpStatus.UNAUTHORIZED.value());
-        error.put("errorCode", ex.getErrorCode());
-        error.put("message", ex.getMessage());
+    // -------------------------------
+    // 🔹 Authentication & Security
+    // -------------------------------
 
+
+    @ExceptionHandler(InvalidCredentialsException.class)
+    public ResponseEntity<ErrorResponse> handleInvalidCredentials(InvalidCredentialsException ex) {
+        ErrorResponse error = new ErrorResponse(
+                LocalDateTime.now(),
+                HttpStatus.UNAUTHORIZED.value(),
+                ex.getErrorCode(),
+                ex.getMessage(),
+                null
+        );
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
     }
 
 
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity<ErrorResponse> handleAuthenticationError(AuthenticationException ex) {
+        logger.warn("Authentication error: {}", ex.getMessage());
+        ErrorResponse error = new ErrorResponse(
+                LocalDateTime.now(),
+                HttpStatus.UNAUTHORIZED.value(),
+                "AUTHENTICATION_FAILED",
+                ex.getMessage(),
+                null
+        );
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
+    }
 
+    @ExceptionHandler(JwtValidationException.class)
+    public ResponseEntity<ErrorResponse> handleJwtValidation(JwtValidationException ex) {
+        ErrorResponse error = new ErrorResponse(
+                LocalDateTime.now(),
+                HttpStatus.UNAUTHORIZED.value(),
+                ex.getErrorCode(),
+                ex.getMessage(),
+                null
+        );
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
+    }
 
-//    @ExceptionHandler(WalletIdNotFoundException.class)
-//    public ResponseEntity<Map<String, Object>> handleWalletNotFound(WalletIdNotFoundException ex) {
-//        Map<String, Object> error = new HashMap<>();
-//        error.put("timestamp", LocalDateTime.now());
-//        error.put("status", HttpStatus.NOT_FOUND.value());
-//        error.put("errorCode", "WALLET_NOT_FOUND");
-//        error.put("message", ex.getMessage());
-//
-//        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
-//    }
+    // -------------------------------
+    // 🔹 Concurrency / Data Errors
+    // -------------------------------
+
+    @ExceptionHandler(OptimisticLockException.class)
+    public ResponseEntity<ErrorResponse> handleOptimisticLockException(OptimisticLockException ex) {
+        ErrorResponse error = new ErrorResponse(
+                LocalDateTime.now(),
+                HttpStatus.CONFLICT.value(),
+                "CONFLICT",
+                "Wallet or entity was modified by another transaction. Please retry.",
+                null
+        );
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(error);
+    }
+
+    // -------------------------------
+    // 🔹 Generic Fallback
+    // -------------------------------
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<Map<String, Object>> handleGenericException(Exception ex) {
+    public ResponseEntity<ErrorResponse> handleGenericException(Exception ex) {
         logger.error("Unhandled exception: ", ex);
 
-        Map<String, Object> error = new HashMap<>();
-        error.put("timestamp", LocalDateTime.now());
-        error.put("status", HttpStatus.BAD_REQUEST.value());
-        error.put("errorCode", "GENERIC_ERROR");
-        error.put("message", ex.getMessage());
-
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+        ErrorResponse error = new ErrorResponse(
+                LocalDateTime.now(),
+                HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                "INTERNAL_ERROR",
+                ex.getMessage(),
+                null
+        );
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
     }
 }

@@ -12,8 +12,5 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByUsername(String username);
 
-   // @Query("SELECT DISTINCT u FROM User u " +
-//            "JOIN u.wallets w " +
-//            "WHERE w.balance > :threshold")
-    //List<User> findUsersWithWalletBalanceGreaterThan(@Param("threshold") BigDecimal threshold);
+
 }

@@ -30,6 +30,14 @@ public class TransactionDTO {
         this.timestamp = transaction.getTimestamp() != null ? transaction.getTimestamp() : LocalDateTime.now();
     }
 
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     // Getters
     public Long getId() { return id; }
     public Long getWalletId() { return walletId; }

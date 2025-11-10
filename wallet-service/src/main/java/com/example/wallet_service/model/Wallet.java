@@ -35,6 +35,14 @@ public class Wallet {
         this.userId = userId;
     }
 
+    // ✅ Add this for test convenience
+    public Wallet(Long id, String walletName, BigDecimal balance, Long userId) {
+        this.id = id;
+        this.walletName = walletName;
+        this.balance = balance;
+        this.userId = userId;
+    }
+
     // 🔹 Getters & Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }

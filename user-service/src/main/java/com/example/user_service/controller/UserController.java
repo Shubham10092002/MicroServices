@@ -1,19 +1,13 @@
 package com.example.user_service.controller;
 
-import com.example.user_service.dto.UserDTO;
-import com.example.user_service.dto.UserSummaryDTO;
 import com.example.user_service.model.User;
-import com.example.user_service.service.UserService;
-import jakarta.validation.Valid;
+import com.example.user_service.service.UserServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -21,9 +15,9 @@ import java.util.Map;
 public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
-    public UserController(UserService userService) {
+    public UserController(UserServiceImpl userService) {
         this.userService = userService;
     }
 
@@ -54,12 +48,13 @@ public class UserController {
     @GetMapping("/{id}")
     public ResponseEntity<?> getUserById(@PathVariable Long id) {
         try {
-            User currentUser = (User) SecurityContextHolder.getContext()
-                    .getAuthentication().getPrincipal();
+            var authentication = SecurityContextHolder.getContext().getAuthentication();
 
-            if (currentUser == null) {
+            if (authentication == null || authentication.getPrincipal() == null) {
                 return ResponseEntity.status(401).body(Map.of("error", "Unauthorized"));
             }
+
+            User currentUser = (User) authentication.getPrincipal();
 
             if (!"ADMIN".equalsIgnoreCase(currentUser.getRole()) && !currentUser.getId().equals(id)) {
                 return ResponseEntity.status(403).body(Map.of(
@@ -76,6 +71,7 @@ public class UserController {
             return ResponseEntity.status(404).body(Map.of("error", ex.getMessage()));
         }
     }
+
 
 
 }

@@ -11,21 +11,20 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/auth")
 public class AuthController {
 
-    private final UserService userService;
+    private final UserService userService; // interface!
 
     public AuthController(UserService userService) {
         this.userService = userService;
     }
 
-    //  Register user using DTO
-    @PostMapping("/register")
-    public ResponseEntity<?> register(@Valid @RequestBody UserDTO userDTO) {
-        return userService.registerUser(userDTO);
-    }
-
-    //  Login user using DTO
     @PostMapping("/login")
     public ResponseEntity<?> login(@Valid @RequestBody LoginRequestDTO loginDTO) {
-        return userService.loginUser(loginDTO);
+        return userService.loginUser(loginDTO); // ✅ no wrapping
     }
+
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@Valid @RequestBody UserDTO userDTO) {
+        return userService.registerUser(userDTO); // ✅ no wrapping
+    }
+
 }
