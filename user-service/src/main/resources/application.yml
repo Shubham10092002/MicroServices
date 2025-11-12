@@ -1,0 +1,61 @@
+spring:
+  application:
+    name: user-service
+
+  main:
+    banner-mode: off
+
+  datasource:
+    url: jdbc:mysql://localhost:3308/user_service_db
+    username: root
+    password: Shubham@2002
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+    show-sql: false
+
+  sql:
+    init:
+      mode: always
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+server:
+  port: 8081
+
+wallet:
+  service:
+    url: http://localhost:8082
+
+jwt:
+  secret: your-256-bit-secret-your-256-bit-secret
+  expiration: 86400000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+logging:
+  level:
+    root: INFO
+    com.example.user_service: DEBUG
+    org.springframework.web: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.springframework.web.client: DEBUG
+  file:
+    name: logs/user-service.log
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

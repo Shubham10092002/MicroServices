@@ -1,5 +1,7 @@
 package com.example.user_service.dto;
 
+import java.math.BigDecimal;
+
 public class UserSummaryDTO {
 
     private Long id;

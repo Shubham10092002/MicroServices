@@ -1,5 +1,8 @@
 package com.example.wallet_service.security;
 
+
+
+import com.example.wallet_service.exception.JwtValidationException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -9,7 +12,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-
 import java.io.IOException;
 
 @Component
@@ -26,22 +28,38 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         String header = request.getHeader("Authorization");
-        if (header != null && header.startsWith("Bearer ")) {
-            String token = header.substring(7);
-            if (jwtUtil.isTokenValid(token)) {
-                String username = jwtUtil.extractUsername(token);
-                String role = jwtUtil.extractRole(token);
-                Long userId = jwtUtil.extractUserId(token);
 
-                UserPrincipal principal = new UserPrincipal(userId, username, role);
-                UsernamePasswordAuthenticationToken authentication =
-                        new UsernamePasswordAuthenticationToken(principal, null, principal.getAuthorities());
-                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+        try {
+            if (header != null && header.startsWith("Bearer ")) {
+                String token = header.substring(7);
 
-                SecurityContextHolder.getContext().setAuthentication(authentication);
+                if (jwtUtil.isTokenValid(token)) {
+                    String username = jwtUtil.extractUsername(token);
+                    String role = jwtUtil.extractRole(token);
+                    Long userId = jwtUtil.extractUserId(token);
+
+                    UserPrincipal principal = new UserPrincipal(userId, username, role);
+                    UsernamePasswordAuthenticationToken authentication =
+                            new UsernamePasswordAuthenticationToken(principal, null, principal.getAuthorities());
+                    authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                }
             }
-        }
 
-        filterChain.doFilter(request, response);
+            // Continue the chain if everything is fine
+
+            filterChain.doFilter(request, response);
+
+        } catch (JwtValidationException ex) {
+            // Handle invalid, expired, malformed JWTs gracefully
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            response.setContentType("application/json");
+            response.getWriter().write(String.format(
+                    "{\"errorCode\":\"%s\",\"message\":\"%s\"}",
+                    ex.getErrorCode(),
+                    ex.getMessage()
+            ));
+        }
     }
 }

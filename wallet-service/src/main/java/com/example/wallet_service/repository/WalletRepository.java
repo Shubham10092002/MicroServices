@@ -8,11 +8,13 @@ import org.springframework.data.repository.query.Param;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 public interface WalletRepository extends JpaRepository<Wallet, Long> {
 
     List<Wallet> findByUserId(Long userId);
     List<Wallet> findByBalanceGreaterThan(BigDecimal threshold);
+    Optional<Wallet> findByIdAndBlacklistedFalse(Long id);
 
     // ✅ Corrected query - use w.userId
     @Query("SELECT SUM(w.balance) FROM Wallet w WHERE w.userId = :userId")

@@ -1,5 +1,6 @@
-package com.example.user_service.controller;
+package com.example.user_service.controller.userController;
 
+import com.example.user_service.dto.UserDetailsDTO;
 import com.example.user_service.model.User;
 import com.example.user_service.service.UserServiceImpl;
 import org.slf4j.Logger;
@@ -21,6 +22,13 @@ public class UserController {
         this.userService = userService;
     }
 
+
+
+
+
+
+
+
     //  Only ADMIN can see all users
 //    @PreAuthorize("hasRole('ADMIN')")
 //    @GetMapping
@@ -29,7 +37,7 @@ public class UserController {
 //        return ResponseEntity.ok(userService.getAllUsers());
 //    }
 
-    // ✅ Create user (admin or open registration)
+    //  Create user (admin or open registration)
 //    @PostMapping
 //    @PreAuthorize("hasRole('ADMIN')")
 //    public ResponseEntity<?> createUser(@Valid @RequestBody UserDTO userDTO, BindingResult result) {
@@ -71,7 +79,5 @@ public class UserController {
             return ResponseEntity.status(404).body(Map.of("error", ex.getMessage()));
         }
     }
-
-
 
 }

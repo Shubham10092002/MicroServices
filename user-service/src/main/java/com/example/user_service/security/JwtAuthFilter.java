@@ -1,5 +1,6 @@
 package com.example.user_service.security;
 
+import com.example.user_service.exception.JwtValidationException;
 import com.example.user_service.model.User;
 import com.example.user_service.repository.UserRepository;
 import jakarta.servlet.FilterChain;
@@ -22,40 +23,65 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     private final JwtUtil jwtUtil;
     private final UserRepository userRepository;
 
+
     public JwtAuthFilter(JwtUtil jwtUtil, UserRepository userRepository) {
         this.jwtUtil = jwtUtil;
         this.userRepository = userRepository;
     }
-
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
         String authHeader = request.getHeader("Authorization");
-        if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            String token = authHeader.substring(7);
 
-            if (jwtUtil.isTokenValid(token)) {
-                String username = jwtUtil.extractUsername(token);
-                String role = jwtUtil.extractRole(token);
+        try {
+            //  Step 1: Extract JWT token from Authorization header
+            if (authHeader != null && authHeader.startsWith("Bearer ")) {
+                String token = authHeader.substring(7);
 
-                //  Fetch full user from DB
-                User user = userRepository.findByUsername(username).orElse(null);
+                //  Step 2: Validate JWT
+                if (jwtUtil.isTokenValid(token)) {
 
-                if (user != null) {
-                    var authorities = List.of(new SimpleGrantedAuthority("ROLE_" + role));
+                    String username = jwtUtil.extractUsername(token);
+                    String role = jwtUtil.extractRole(token);
 
-                    //  Store full User object as principal (not just username)
-                    UsernamePasswordAuthenticationToken authentication =
-                            new UsernamePasswordAuthenticationToken(user, null, authorities);
+                    //  Step 3: Fetch full user from DB
+                    User user = userRepository.findByUsername(username).orElse(null);
 
-                    authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                    if (user != null) {
+                        //  Check blacklist
+                        if (user.isBlacklisted()) {
+                            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+                            response.setContentType("application/json");
+                            response.getWriter().write(
+                                    "{\"errorCode\":\"USER_BLACKLISTED\",\"message\":\"Your account has been blacklisted. Access denied.\"}");
+                            return;
+                        }
+
+                        //  Step 4: Create Spring Security authentication
+                        var authorities = List.of(new SimpleGrantedAuthority("ROLE_" + role));
+
+                        UsernamePasswordAuthenticationToken authentication =
+                                new UsernamePasswordAuthenticationToken(user, null, authorities);
+                        authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                        SecurityContextHolder.getContext().setAuthentication(authentication);
+                    }
                 }
             }
-        }
 
-        filterChain.doFilter(request, response);
+            //  Continue filter chain if all checks pass
+            filterChain.doFilter(request, response);
+
+        } catch (JwtValidationException ex) {
+            //  Step 5: Handle invalid/expired/malformed tokens cleanly
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            response.setContentType("application/json");
+            response.getWriter().write(String.format(
+                    "{\"errorCode\":\"%s\",\"message\":\"%s\"}",
+                    ex.getErrorCode(),
+                    ex.getMessage()
+            ));
+        }
     }
 }

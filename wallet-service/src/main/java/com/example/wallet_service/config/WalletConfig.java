@@ -10,10 +10,10 @@ import java.math.BigDecimal;
 @Component
 public class WalletConfig {
 
-    @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
+//    @Bean
+//    public RestTemplate restTemplate() {
+//        return new RestTemplate();
+//    }
 
 
     @Value("${wallet.max-credit-limit}")

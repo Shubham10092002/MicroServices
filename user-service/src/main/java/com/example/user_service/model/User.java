@@ -19,7 +19,19 @@ public class User {
     @Column(nullable = false)
     private String role = "USER";
 
+
+    @Column(nullable = false)
+    private boolean blacklisted = false;
+
     public User() {}
+
+    public boolean isBlacklisted() {
+        return blacklisted;
+    }
+
+    public void setBlacklisted(boolean blacklisted) {
+        this.blacklisted = blacklisted;
+    }
 
     public User(String username, String password) {
         this.username = username;

@@ -7,6 +7,7 @@ CREATE TABLE wallets (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     wallet_name VARCHAR(100),
     balance DECIMAL(19, 2) NOT NULL DEFAULT 0,
+    blacklisted BOOLEAN NOT NULL DEFAULT FALSE,
 
     user_id BIGINT NOT NULL,
     version BIGINT DEFAULT 0
@@ -23,10 +24,10 @@ CREATE TABLE transactions (
 );
 
 -- Insert sample wallets"
-INSERT INTO wallets (wallet_name, balance, user_id, version)
-VALUES ('Default Wallet', 500.00, 1, 0),
-       ('Savings Wallet', 1500.50, 2, 0),
-       ('saving Wallet', 10000, 3, 0);
+INSERT INTO wallets (wallet_name, balance,blacklisted, user_id, version)
+VALUES ('Default Wallet', 500.00, FALSE, 1, 0),
+       ('Savings Wallet', 1500.50, FALSE, 2, 0),
+       ('saving Wallet', 10000, 3, FALSE, 0);
 
 
 -- Insert sample transactions

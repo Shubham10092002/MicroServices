@@ -1,0 +1,62 @@
+spring:
+  application:
+    name: wallet-service
+
+  main:
+    banner-mode: off
+
+  datasource:
+    url: jdbc:mysql://localhost:3308/wallet_service_db
+    username: root
+    password: Shubham@2002
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+    show-sql: false
+
+  sql:
+    init:
+      mode: always
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+server:
+  port: 8082
+
+user:
+  service:
+    url: http://localhost:8081
+
+jwt:
+  secret: your-256-bit-secret-your-256-bit-secret
+  expiration: 86400000
+
+wallet:
+  max-credit-limit: 100000.00
+  max-debit-limit: 50000.00
+  daily-debit-limit: 10000.00
+  monthly-debit-limit: 50000.00
+  daily-credit-limit: 20000.00
+  monthly-credit-limit: 100000.00
+
+logging:
+  level:
+    root: INFO
+    com.example.wallet_service: DEBUG
+    org.springframework.web: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  file:
+    name: logs/wallet-service.log
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

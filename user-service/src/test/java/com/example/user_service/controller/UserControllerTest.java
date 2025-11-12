@@ -1,5 +1,6 @@
 package com.example.user_service.controller;
 
+import com.example.user_service.controller.userController.UserController;
 import com.example.user_service.dto.UserSummaryDTO;
 import com.example.user_service.model.User;
 import com.example.user_service.service.UserServiceImpl;

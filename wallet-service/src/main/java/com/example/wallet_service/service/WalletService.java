@@ -1,21 +1,29 @@
 package com.example.wallet_service.service;
 
+import com.example.wallet_service.client.UserClient;
 import com.example.wallet_service.config.WalletConfig;
 import com.example.wallet_service.data.WalletOperationResult;
 import com.example.wallet_service.dto.TransactionSummaryDTO;
+import com.example.wallet_service.dto.UserDTO;
 import com.example.wallet_service.dto.WalletBalanceDTO;
+import com.example.wallet_service.exception.WalletBlacklistedException;
+import com.example.wallet_service.exception.WalletIdNotFoundException;
 import com.example.wallet_service.model.Transaction;
 import com.example.wallet_service.model.Wallet;
 import com.example.wallet_service.repository.TransactionRepository;
 import com.example.wallet_service.repository.WalletRepository;
+import com.example.wallet_service.security.UserPrincipal;
 import jakarta.persistence.OptimisticLockException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -28,15 +36,17 @@ public class WalletService {
     private final TransactionRepository transactionRepository;
     private final WalletConfig walletConfig;
     private final TransactionService transactionService;
+    private final UserClient userClient;
 
     public WalletService(WalletRepository walletRepository,
                          TransactionRepository transactionRepository,
                          WalletConfig walletConfig,
-                         TransactionService transactionService) {
+                         TransactionService transactionService, UserClient userClient) {
         this.walletRepository = walletRepository;
         this.transactionRepository = transactionRepository;
         this.walletConfig = walletConfig;
         this.transactionService = transactionService;
+        this.userClient = userClient;
     }
 
 
@@ -76,12 +86,16 @@ public class WalletService {
 
     // ========================= BASIC READ METHODS =========================
 
-    public List<Wallet> getAllWallets() {
-        logger.info("Fetching all wallets");
-        List<Wallet> wallets = walletRepository.findAll();
-        logger.debug("Total wallets fetched: {}", wallets.size());
-        return wallets;
-    }
+//    public List<Wallet> getAllWallets() {
+//        logger.info("Fetching all wallets");
+//        List<Wallet> wallets = walletRepository.findAll();
+//        logger.debug("Total wallets fetched: {}", wallets.size());
+//        return wallets;
+//    }
+
+
+
+
 
     public Optional<Wallet> getWalletById(Long id) {
         logger.info("Fetching wallet by ID: {}", id);
@@ -140,7 +154,21 @@ public class WalletService {
                 return new WalletOperationResult.Failure("WALLET_NOT_FOUND", "Wallet ID " + walletId + " not found.");
             }
 
+
+
             Wallet wallet = walletOpt.get();
+
+            //check the blacklist status
+            if (wallet.isBlacklisted()) {
+                throw new WalletBlacklistedException("This wallet has been blacklisted. Transactions are not allowed.");
+            }
+
+            Long userId = wallet.getUserId();
+
+            verifyUserNotBlacklisted(userId);
+
+           // UserPrincipal principal = (UserPrincipal) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
 
             if (amount.compareTo(walletConfig.getMaxCreditLimit()) > 0) {
                 logger.warn("Credit amount {} exceeds max limit {}", amount, walletConfig.getMaxCreditLimit());
@@ -169,6 +197,15 @@ public class WalletService {
     }
 
 
+    private UserPrincipal getCurrentUser() {
+        return (UserPrincipal) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    }
+
+    private ResponseEntity<?> forbidden(String reason) {
+        return ResponseEntity.status(403).body(Map.of("errorCode", "ACCESS_DENIED", "reason", reason));
+    }
+
+
     // @Transactional(noRollbackFor = IllegalArgumentException.class)
     @Transactional
     public WalletOperationResult debit(Long walletId, BigDecimal amount, String description) {
@@ -186,6 +223,18 @@ public class WalletService {
             }
 
             Wallet wallet = walletOpt.get();
+
+
+        // check the blackList status
+            if (wallet.isBlacklisted()) {
+                throw new WalletBlacklistedException("This wallet has been blacklisted. Transactions are not allowed.");
+            }
+
+            Long userId = wallet.getUserId();
+
+            // check the blackListed user
+            verifyUserNotBlacklisted(userId);
+
 
             if (amount.compareTo(walletConfig.getMaxDebitLimit()) > 0) {
                 logger.warn("Debit amount {} exceeds max limit {}", amount, walletConfig.getMaxDebitLimit());
@@ -217,6 +266,38 @@ public class WalletService {
             return new WalletOperationResult.Failure("UNKNOWN_ERROR", "Unexpected error: " + e.getMessage());
         }
     }
+
+
+    // ========================= BLACKLIST =========================
+    public Wallet toggleBlacklistStatus(Long id, boolean status) {
+        Wallet wallet = walletRepository.findById(id)
+                .orElseThrow(() -> new WalletIdNotFoundException("Wallet not found with ID " + id));
+        wallet.setBlacklisted(status);
+        walletRepository.save(wallet);
+
+        logger.info("Wallet {} blacklisted status set to {}", wallet.getId(), status);
+        return wallet;
+    }
+
+
+
+    private void verifyUserNotBlacklisted(Long userId) {
+        try {
+            UserDTO user = userClient.getUserById(userId);
+            if (user != null && user.isBlacklisted()) {
+                // Stop immediately if blacklisted
+                throw new WalletBlacklistedException("User is blacklisted. Transactions are not allowed.");
+            }
+        } catch (WalletBlacklistedException e) {
+            // Re-throw your custom exception directly
+            throw e;
+        } catch (Exception ex) {
+            logger.error("Failed to verify user blacklist status from user-service: {}", ex.getMessage());
+            throw new WalletBlacklistedException("Unable to verify user status. Please try again later.");
+        }
+    }
+
+
 
     // ========================= BALANCE CHECK =========================
 

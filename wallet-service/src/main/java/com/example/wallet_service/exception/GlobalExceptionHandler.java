@@ -46,6 +46,20 @@ public class GlobalExceptionHandler {
     }
 
 
+    @ExceptionHandler(WalletBlacklistedException.class)
+    public ResponseEntity<ErrorResponse> handleWalletBlacklisted(WalletBlacklistedException ex) {
+        ErrorResponse error = new ErrorResponse(
+                LocalDateTime.now(),
+                HttpStatus.FORBIDDEN.value(),
+                ex.getErrorCode(),
+                ex.getMessage(),
+                null
+        );
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(error);
+    }
+
+
+
 
 
     @ExceptionHandler(LimitExceededException.class)

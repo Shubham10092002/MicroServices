@@ -4,7 +4,9 @@ import com.example.wallet_service.client.UserClient;
 import com.example.wallet_service.data.WalletOperationResult;
 import com.example.wallet_service.dto.CreateWalletDTO;
 import com.example.wallet_service.dto.TransactionSummaryDTO;
+import com.example.wallet_service.dto.UserDTO;
 import com.example.wallet_service.dto.WalletBalanceDTO;
+import com.example.wallet_service.exception.WalletBlacklistedException;
 import com.example.wallet_service.model.Wallet;
 import com.example.wallet_service.repository.WalletRepository;
 import com.example.wallet_service.security.UserPrincipal;
@@ -34,17 +36,17 @@ public class WalletController {
     }
 
     // ========================== GET ALL WALLETS (Admin only) ==========================
-    @GetMapping
-    public ResponseEntity<?> getAllWallets() {
-        UserPrincipal principal = getCurrentUser();
-        if (!"ADMIN".equalsIgnoreCase(principal.getRole())) {
-            return ResponseEntity.status(403).body(Map.of(
-                    "errorCode", "ACCESS_DENIED",
-                    "reason", "Only ADMINs can view all wallets"
-            ));
-        }
-        return ResponseEntity.ok(walletService.getAllWallets());
-    }
+//    @GetMapping
+//    public ResponseEntity<?> getAllWallets() {
+//        UserPrincipal principal = getCurrentUser();
+//        if (!"ADMIN".equalsIgnoreCase(principal.getRole())) {
+//            return ResponseEntity.status(403).body(Map.of(
+//                    "errorCode", "ACCESS_DENIED",
+//                    "reason", "Only ADMINs can view all wallets"
+//            ));
+//        }
+//        return ResponseEntity.ok(walletService.getAllWallets());
+//    }
 
     // ========================== CREATE WALLET (Only Self) ==========================
     @PostMapping("/user/{userId}/create-wallet")
@@ -94,6 +96,15 @@ public class WalletController {
     }
 
     // ========================== GET TOTAL BALANCE ==========================
+
+//    @GetMapping("/{walletId}")
+//    public ResponseEntity<?> getWalletBalance(@PathVariable Long walletId) {
+//        UserPrincipal principal = getCurrentUser();
+//        if (!"ADMIN".equalsIgnoreCase(principal.getRole()) && !walletId.equals(principal.getUserId())) {
+//
+//        }
+//    }
+
     @GetMapping("/user/{userId}/totalBalance")
     public ResponseEntity<?> getTotalBalanceByUser(@PathVariable Long userId) {
         UserPrincipal principal = getCurrentUser();
@@ -170,9 +181,12 @@ public class WalletController {
         return buildResponse(walletService.debit(walletId, amount, description));
     }
 
+
+
     // ========================== TRANSFER ==========================
     @PostMapping("/transfer")
-    public ResponseEntity<?> transfer(@RequestParam Long fromWalletId, @RequestParam Long toWalletId,
+    public ResponseEntity<?> transfer(@RequestParam Long fromWalletId,
+                                      @RequestParam Long toWalletId,
                                       @RequestParam BigDecimal amount,
                                       @RequestParam(required = false) String description) {
 
@@ -184,23 +198,47 @@ public class WalletController {
         if (fromWallet == null || toWallet == null)
             return ResponseEntity.status(404).body(Map.of("errorCode", "NOT_FOUND", "reason", "One or both wallets not found"));
 
-        // 🧩 Ownership check
-        if (!"ADMIN".equalsIgnoreCase(principal.getRole()) && !fromWallet.getUserId().equals(principal.getUserId()))
-            return forbidden("You can only transfer from your own wallet");
+        //  Check blacklisted wallets
+        if (fromWallet.isBlacklisted() || toWallet.isBlacklisted()) {
+            throw new WalletBlacklistedException("This wallet has been blacklisted. Transactions are not allowed.");
+        }
 
+
+//        // 🔹 2. Check if the wallet's owner (user) is blacklisted
+//        UserDTO user = userClient.getUserById(wallet.getUserId());
+//        if (user != null && user.isBlacklisted()) {
+//            throw new WalletBlacklistedException(
+//                    "The user owning this wallet is blacklisted. Transactions are not allowed."
+//            );
+//        }
+
+
+
+        //  Ownership or Admin privilege check
+        boolean isAdmin = "ADMIN".equalsIgnoreCase(principal.getRole());
+        boolean ownsFromWallet = fromWallet.getUserId().equals(principal.getUserId());
+
+        if (!isAdmin && !ownsFromWallet) {
+            return forbidden("You can only transfer from your own wallet");
+        }
+
+        //  Prevent self-transfers
         if (fromWalletId.equals(toWalletId))
             return badRequest("INVALID_TRANSFER", "Cannot transfer to the same wallet");
 
         if (amount.compareTo(BigDecimal.ZERO) <= 0)
             return badRequest("INVALID_AMOUNT", "Amount must be positive");
 
+        //  Perform transaction
         WalletOperationResult debitResult = walletService.debit(fromWalletId, amount, description);
         if (debitResult instanceof WalletOperationResult.Failure failure)
             return badRequest(failure.errorCode(), failure.reason());
 
         walletService.credit(toWalletId, amount, description);
+
         return ResponseEntity.ok(Map.of("message", "Amount transferred successfully"));
     }
+
 
     // ========================== HELPER METHODS ==========================
     private UserPrincipal getCurrentUser() {

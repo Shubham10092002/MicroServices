@@ -1,11 +1,11 @@
 package com.example.user_service.controller;
 
+import com.example.user_service.controller.publicController.AuthController;
 import com.example.user_service.exception.GlobalExceptionHandler;
 //import org.springframework.boot.test.mock.mockito.MockitoBean;
 
 import com.example.user_service.dto.LoginRequestDTO;
 import com.example.user_service.dto.UserDTO;
-import com.example.user_service.exception.InvalidCredentialsException;
 import com.example.user_service.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
@@ -22,7 +22,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.Import;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;

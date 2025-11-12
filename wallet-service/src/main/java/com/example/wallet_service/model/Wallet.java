@@ -17,16 +17,18 @@ public class Wallet {
     @Column(nullable = false)
     private BigDecimal balance = BigDecimal.ZERO;
 
-    // 🔹 Only store userId, no relation to User entity
+    private boolean blacklisted = false;
+
+    //  Only store userId, no relation to User entity
     @Column(name = "user_id", nullable = false)
     private Long userId;
 
-    // 🔹 Optimistic locking version field
+    //  Optimistic locking version field
     @Version
     @Column(nullable = true)
     private Long version = 0L;
 
-    // 🔹 Constructors
+    //  Constructors
     public Wallet() {}
 
     public Wallet(String walletName, BigDecimal balance, Long userId) {
@@ -35,7 +37,7 @@ public class Wallet {
         this.userId = userId;
     }
 
-    // ✅ Add this for test convenience
+    //  Add this for test convenience
     public Wallet(Long id, String walletName, BigDecimal balance, Long userId) {
         this.id = id;
         this.walletName = walletName;
@@ -55,6 +57,14 @@ public class Wallet {
 
     public Long getUserId() { return userId; }
     public void setUserId(Long userId) { this.userId = userId; }
+
+    public boolean isBlacklisted() {
+        return blacklisted;
+    }
+
+    public void setBlacklisted(boolean blacklisted) {
+        this.blacklisted = blacklisted;
+    }
 
     public Long getVersion() { return version; }
     public void setVersion(Long version) { this.version = version; }
