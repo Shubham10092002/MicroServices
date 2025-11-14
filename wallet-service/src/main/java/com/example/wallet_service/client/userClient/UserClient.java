@@ -14,7 +14,11 @@ public class UserClient {
 
     private final RestTemplate restTemplate;
     private final String userServiceBaseUrl;
-    private final String internalToken = "wallet-service-internal-key"; // same key as above
+
+    @Value("${internal.service.key}")
+    private String internalToken;
+
+    //private final String internalToken = "wallet-service-internal-key"; // same key as above
 
     public UserClient(RestTemplate restTemplate,
                       @Value("${user.service.url}") String userServiceBaseUrl) {

@@ -4,6 +4,7 @@ import com.example.user_service.model.User;
 import com.example.user_service.repository.UserRepository;
 import com.example.user_service.service.UserService;
 import com.example.user_service.service.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,8 +17,11 @@ public class InternalUserController {
 
     private final UserServiceImpl userService;
 
+    @Value("${internal.service.key}")
+    private String internalServiceKey;
+
     public InternalUserController( UserServiceImpl userService) {
-        
+
         this.userService = userService;
     }
 
@@ -26,7 +30,7 @@ public class InternalUserController {
                                            @RequestHeader("X-INTERNAL-TOKEN") String internalToken) {
 
         // Simple static internal key validation
-        if (!"wallet-service-internal-key".equals(internalToken)) {
+        if (!internalServiceKey.equals(internalToken)) {
             return ResponseEntity.status(403).body(Map.of(
                     "errorCode", "UNAUTHORIZED_SERVICE",
                     "message", "Invalid internal service token"

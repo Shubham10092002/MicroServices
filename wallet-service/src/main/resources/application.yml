@@ -48,6 +48,14 @@ wallet:
   daily-credit-limit: 20000.00
   monthly-credit-limit: 100000.00
 
+
+
+internal:
+  service:
+    key: wallet-service-internal-key
+
+
+
 logging:
   level:
     root: INFO
