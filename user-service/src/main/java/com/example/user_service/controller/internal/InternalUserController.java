@@ -2,6 +2,8 @@ package com.example.user_service.controller.internal;
 
 import com.example.user_service.model.User;
 import com.example.user_service.repository.UserRepository;
+import com.example.user_service.service.UserService;
+import com.example.user_service.service.UserServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +13,12 @@ import java.util.Map;
 @RequestMapping("/internal/users")
 public class InternalUserController {
 
-    private final UserRepository userRepository;
 
-    public InternalUserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    private final UserServiceImpl userService;
+
+    public InternalUserController( UserServiceImpl userService) {
+        
+        this.userService = userService;
     }
 
     @GetMapping("/{id}/status")
@@ -29,7 +33,7 @@ public class InternalUserController {
             ));
         }
 
-        User user = userRepository.findById(id).orElse(null);
+        User user = userService.findById(id);
         if (user == null) {
             return ResponseEntity.status(404).body(Map.of(
                     "errorCode", "USER_NOT_FOUND",

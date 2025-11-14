@@ -92,53 +92,6 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
-//    @Override
-//    public ResponseEntity<?> loginUser(LoginRequestDTO loginDTO) {
-//        logger.info("Login attempt by '{}'", loginDTO.getUsername());
-//        try {
-//            authenticationManager.authenticate(
-//                    new UsernamePasswordAuthenticationToken(loginDTO.getUsername(), loginDTO.getPassword())
-//            );
-//        } catch (BadCredentialsException ex) {
-//            logger.warn("Invalid login credentials for user '{}'", loginDTO.getUsername());
-//            throw new InvalidCredentialsException("Incorrect username or password");
-//        } catch (Exception ex) {
-//            logger.error("Authentication failed: {}", ex.getMessage());
-//            throw new RuntimeException("Login failed due to internal error", ex);
-//        }
-//
-//        try {
-//            User existingUser = userRepository.findByUsername(loginDTO.getUsername())
-//                    .orElseThrow(() -> new RuntimeException("User not found"));
-//
-//            if (existingUser.isBlacklisted()) {
-//                logger.warn("Blocked login attempt by blacklisted user '{}'", existingUser.getUsername());
-//                return ResponseEntity.status(HttpStatus.FORBIDDEN).body(Map.of(
-//                        "errorCode", "USER_BLACKLISTED",
-//                        "message", "Your account has been blacklisted. Please contact support."
-//                ));
-//            }
-//
-//            String token = jwtUtil.generateToken(
-//                    existingUser.getId(),
-//                    existingUser.getUsername(),
-//                    existingUser.getRole()
-//            );
-//
-//            logger.info("User '{}' logged in successfully", existingUser.getUsername());
-//
-//            return ResponseEntity.ok(Map.of(
-//                    "token", token,
-//                    "userId", existingUser.getId(),
-//                    "username", existingUser.getUsername(),
-//                    "role", existingUser.getRole()
-//            ));
-//        } catch (RuntimeException ex) {
-//            logger.error("Login failed: {}", ex.getMessage());
-//            throw new UserNotFoundException(loginDTO.getUsername());
-//        }
-//    }
-
 
 
     @Override
@@ -204,4 +157,10 @@ public class UserServiceImpl implements UserService {
                 .map(user -> new UserSummaryDTO(user.getId(), user.getUsername()))
                 .orElseThrow(() -> new RuntimeException("User not found with ID " + id));
     }
+
+    public User findById(Long id){
+        return  userRepository.findById(id)
+                .orElseThrow(() -> new UserNotFoundException("User not found with ID " + id));
+    }
+
 }
