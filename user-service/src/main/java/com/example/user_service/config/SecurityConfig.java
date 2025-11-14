@@ -89,12 +89,13 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/internal/**").permitAll()  // internal calls handled separately
                         .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/api/users/register").permitAll()
-                        .requestMatchers("/api/admin/{id}/blacklist").hasRole("ADMIN")
+                        .requestMatchers("/api/users/**").authenticated()
+                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
-                // ✅ Attach custom handlers
+                //  Attach custom handlers
                 .exceptionHandling(ex -> ex
                         .accessDeniedHandler(accessDeniedHandler)
                         .authenticationEntryPoint(authEntryPoint)

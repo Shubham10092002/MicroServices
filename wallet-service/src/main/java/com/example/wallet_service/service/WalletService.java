@@ -3,6 +3,7 @@ package com.example.wallet_service.service;
 import com.example.wallet_service.client.UserClient;
 import com.example.wallet_service.config.WalletConfig;
 import com.example.wallet_service.data.WalletOperationResult;
+import com.example.wallet_service.dto.CreateWalletDTO;
 import com.example.wallet_service.dto.TransactionSummaryDTO;
 import com.example.wallet_service.dto.UserDTO;
 import com.example.wallet_service.dto.WalletBalanceDTO;
@@ -54,30 +55,28 @@ public class WalletService {
     /**
      * Creates a default wallet for a given user (called from user-service)
      */
-    public Wallet createDefaultWalletForUser(Long userId) {
+    public Wallet createWalletForUser(Long userId, CreateWalletDTO walletDTO) {
         Wallet wallet = new Wallet();
-        wallet.setWalletName("Default Wallet");
-        wallet.setBalance(BigDecimal.ZERO);
+        wallet.setWalletName(walletDTO.getWalletName());
+        wallet.setBalance(walletDTO.getInitialBalance());
         wallet.setUserId(userId); // since we now store userId instead of a User entity
 
         return walletRepository.save(wallet);
     }
 
-//    public List<Wallet> findWalletsWithBalanceGreaterThan(BigDecimal threshold) {
-//        return walletRepository.findByBalanceGreaterThan(threshold);
+
+
+//    public List<WalletBalanceDTO> findWalletsWithBalanceGreaterThan(BigDecimal threshold) {
+//        List<Wallet> wallets = walletRepository.findByBalanceGreaterThan(threshold);
+//
+//        return wallets.stream()
+//                .map(wallet -> new WalletBalanceDTO(
+//                        wallet.getId(),
+//                        wallet.getWalletName(),
+//                        wallet.getBalance()
+//                ))
+//                .toList();
 //    }
-
-    public List<WalletBalanceDTO> findWalletsWithBalanceGreaterThan(BigDecimal threshold) {
-        List<Wallet> wallets = walletRepository.findByBalanceGreaterThan(threshold);
-
-        return wallets.stream()
-                .map(wallet -> new WalletBalanceDTO(
-                        wallet.getId(),
-                        wallet.getWalletName(),
-                        wallet.getBalance()
-                ))
-                .toList();
-    }
 
 
 
@@ -108,23 +107,15 @@ public class WalletService {
         return wallet;
     }
 
-    public List<WalletBalanceDTO> getWalletBalancesByUser(Long userId) {
-        logger.info("Fetching wallet balances for user ID: {}", userId);
-        List<WalletBalanceDTO> balances = walletRepository.getWalletBalancesByUserId(userId);
-        logger.debug("Fetched {} wallet balances for user {}", balances.size(), userId);
-        return balances;
-    }
 
-    public BigDecimal getTotalBalanceByUser(Long userId) {
-        logger.info("Calculating total balance for user ID: {}", userId);
-        BigDecimal totalBalance = walletRepository.getTotalBalanceByUserId(userId);
-        if (totalBalance == null) {
-            logger.warn("Total balance is null for user {}, setting to ZERO", userId);
-            totalBalance = BigDecimal.ZERO;
-        }
-        logger.debug("Total balance for user {} is {}", userId, totalBalance);
-        return totalBalance;
-    }
+
+//    public List<WalletBalanceDTO> getWalletBalancesByUser(Long userId) {
+//        logger.info("Fetching wallet balances for user ID: {}", userId);
+//        List<WalletBalanceDTO> balances = walletRepository.getWalletBalancesByUserId(userId);
+//        logger.debug("Fetched {} wallet balances for user {}", balances.size(), userId);
+//        return balances;
+//    }
+
 
     public List<TransactionSummaryDTO> getTransactionSummary(Long walletId) {
         logger.info("Fetching transaction summary for wallet ID: {}", walletId);
@@ -147,6 +138,7 @@ public class WalletService {
                 logger.warn("Invalid credit amount: {}", amount);
                 return new WalletOperationResult.Failure("INVALID_AMOUNT", "Amount must be greater than zero.");
             }
+
 
             Optional<Wallet> walletOpt = walletRepository.findById(walletId);
             if (walletOpt.isEmpty()) {
@@ -268,7 +260,55 @@ public class WalletService {
     }
 
 
-    // ========================= BLACKLIST =========================
+
+
+    @Transactional
+    public WalletOperationResult transfer(Long fromWalletId, Long toWalletId, BigDecimal amount, String description) {
+        logger.info("Transfer request: fromWallet={}, toWallet={}, amount={}", fromWalletId, toWalletId, amount);
+
+        if (fromWalletId.equals(toWalletId)) {
+            return new WalletOperationResult.Failure("INVALID_TRANSFER", "Cannot transfer to the same wallet.");
+        }
+
+        Optional<Wallet> fromOpt = walletRepository.findById(fromWalletId);
+        Optional<Wallet> toOpt = walletRepository.findById(toWalletId);
+
+        if (fromOpt.isEmpty() || toOpt.isEmpty()) {
+            return new WalletOperationResult.Failure("NOT_FOUND", "One or both wallets not found.");
+        }
+
+        Wallet fromWallet = fromOpt.get();
+        Wallet toWallet = toOpt.get();
+
+        // Check blacklisted wallets
+        if (fromWallet.isBlacklisted() || toWallet.isBlacklisted()) {
+            throw new WalletBlacklistedException("This wallet has been blacklisted. Transactions are not allowed.");
+        }
+
+        // Check if users of either wallet are blacklisted
+        verifyUserNotBlacklisted(fromWallet.getUserId());
+        verifyUserNotBlacklisted(toWallet.getUserId());
+
+        // Check amount
+        if (amount.compareTo(BigDecimal.ZERO) <= 0) {
+            return new WalletOperationResult.Failure("INVALID_AMOUNT", "Amount must be greater than zero.");
+        }
+
+        // Perform debit and credit
+        WalletOperationResult debitResult = debit(fromWalletId, amount, description);
+        if (debitResult instanceof WalletOperationResult.Failure failure) {
+            return failure;
+        }
+
+        credit(toWalletId, amount, description);
+        logger.info("Transfer completed: fromWallet={} → toWallet={} amount={}", fromWalletId, toWalletId, amount);
+
+        return new WalletOperationResult.Success("Transfer successful");
+    }
+
+
+
+    // ========================= BLACKLIST STATUS OF WALLET =========================
     public Wallet toggleBlacklistStatus(Long id, boolean status) {
         Wallet wallet = walletRepository.findById(id)
                 .orElseThrow(() -> new WalletIdNotFoundException("Wallet not found with ID " + id));
@@ -281,21 +321,51 @@ public class WalletService {
 
 
 
+//    private void verifyUserNotBlacklisted(Long userId) {
+//        try {
+//            UserDTO user = userClient.getUserById(userId);
+//            if (user != null && user.isBlacklisted()) {
+//                // Stop immediately if blacklisted
+//                throw new WalletBlacklistedException("User is blacklisted. Transactions are not allowed.");
+//            }
+//        } catch (WalletBlacklistedException e) {
+//            // Re-throw your custom exception directly
+//            throw e;
+//        } catch (Exception ex) {
+//            logger.error("Failed to verify user blacklist status from user-service: {}", ex.getMessage());
+//            throw new WalletBlacklistedException("Unable to verify user status. Please try again later.");
+//        }
+//    }
+
+//    private void verifyUserNotBlacklisted(Long userId) {
+//        logger.info("Verifying blacklist status for userId={} via user-service", userId);
+//
+//        try {
+//
+//            UserDTO user = userClient.getUserById(userId);
+//            if (user != null && user.isBlacklisted()) {
+//                throw new WalletBlacklistedException(
+//                        "User with ID " + userId + " is blacklisted. Transactions are not allowed."
+//                );
+//            }
+//        } catch (WalletBlacklistedException e) {
+//            throw e;
+//        } catch (Exception ex) {
+//            logger.error("Failed to verify user blacklist status from user-service: {}", ex.getMessage());
+//            throw new WalletBlacklistedException("Unable to verify user status. Please try again later.");
+//        }
+//    }
+
+
     private void verifyUserNotBlacklisted(Long userId) {
-        try {
-            UserDTO user = userClient.getUserById(userId);
-            if (user != null && user.isBlacklisted()) {
-                // Stop immediately if blacklisted
-                throw new WalletBlacklistedException("User is blacklisted. Transactions are not allowed.");
-            }
-        } catch (WalletBlacklistedException e) {
-            // Re-throw your custom exception directly
-            throw e;
-        } catch (Exception ex) {
-            logger.error("Failed to verify user blacklist status from user-service: {}", ex.getMessage());
-            throw new WalletBlacklistedException("Unable to verify user status. Please try again later.");
+        if (userClient.isUserBlacklisted(userId)) {
+            throw new WalletBlacklistedException(
+                    "User " + userId + " is blacklisted. Transactions are not allowed."
+            );
         }
     }
+
+
 
 
 

@@ -17,7 +17,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
     SELECT t FROM Transaction t
     JOIN t.wallet w
     WHERE (:walletId IS NULL OR w.id = :walletId)
-    AND (:userId IS NULL OR w.userId = :userId)
+   
     AND (:type IS NULL OR t.type = :type)
     AND (:startDate IS NULL OR t.timestamp >= :startDate)
     AND (:endDate IS NULL OR t.timestamp <= :endDate)
@@ -25,7 +25,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
     """)
     Page<Transaction> findTransactionsWithFilters(
             @Param("walletId") Long walletId,
-            @Param("userId") Long userId,
+
             @Param("type") Transaction.Type type,
             @Param("startDate") LocalDateTime startDate,
             @Param("endDate") LocalDateTime endDate,
@@ -41,7 +41,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
         ORDER BY t.timestamp DESC
         """)
     List<Transaction> findUserTransactionsBetweenDates(
-            @Param("userId") Long userId,
+          //  @Param("userId") Long userId,
             @Param("startDate") LocalDateTime startDate,
             @Param("endDate") LocalDateTime endDate,
             @Param("type") Transaction.Type type

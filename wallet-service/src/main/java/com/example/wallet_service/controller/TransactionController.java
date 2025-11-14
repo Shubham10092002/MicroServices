@@ -5,6 +5,7 @@ import com.example.wallet_service.model.Wallet;
 import com.example.wallet_service.security.UserPrincipal;
 import com.example.wallet_service.service.TransactionService;
 import com.example.wallet_service.repository.WalletRepository;
+import com.example.wallet_service.service.WalletService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -18,10 +19,12 @@ public class TransactionController {
 
     private final TransactionService transactionService;
     private final WalletRepository walletRepository;
+    private final WalletService walletService;
 
-    public TransactionController(TransactionService transactionService, WalletRepository walletRepository) {
+    public TransactionController(TransactionService transactionService, WalletRepository walletRepository, WalletService walletService) {
         this.transactionService = transactionService;
         this.walletRepository = walletRepository;
+        this.walletService = walletService;
     }
 
     // 🔹 Helper to get current authenticated user
@@ -37,35 +40,26 @@ public class TransactionController {
         ));
     }
 
-    // 🔹 Helper for 404 Not Found response
+    // Helper for 404 Not Found response
     private ResponseEntity<?> notFound(String message) {
         return ResponseEntity.status(404).body(Map.of(
                 "errorCode", "NOT_FOUND",
                 "reason", message
         ));
     }
-
-    // ======================== GET ALL TRANSACTIONS (ADMIN ONLY) ========================
-    @GetMapping
-    public ResponseEntity<?> getAllTransactions() {
-        UserPrincipal principal = getCurrentUser();
-        if (!"ADMIN".equalsIgnoreCase(principal.getRole())) {
-            return forbidden("Only ADMIN can view all transactions");
-        }
-        return ResponseEntity.ok(transactionService.getAllTransactions());
-    }
+    
 
     // ======================== GET TRANSACTIONS BY WALLET ID ========================
     @GetMapping("/wallet/{walletId}")
     public ResponseEntity<?> getTransactionsByWallet(@PathVariable Long walletId) {
         UserPrincipal principal = getCurrentUser();
 
-        Wallet wallet = walletRepository.findById(walletId).orElse(null);
+        Wallet wallet = walletService.getWalletById(walletId).orElse(null);
         if (wallet == null) {
             return notFound("Wallet not found with ID " + walletId);
         }
 
-        // ✅ Ownership check
+        //  Ownership check
         if (!"ADMIN".equalsIgnoreCase(principal.getRole()) &&
                 !wallet.getUserId().equals(principal.getUserId())) {
             return forbidden("You can only view transactions of your own wallets");
@@ -85,16 +79,28 @@ public class TransactionController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size
     ) {
+
+        Wallet wallet = walletService.getWalletById(walletId).orElse(null);
+
+        if (wallet == null) {
+            return notFound("Wallet not found with ID " + walletId);
+        }
+
         UserPrincipal principal = getCurrentUser();
 
-        if (!"ADMIN".equalsIgnoreCase(principal.getRole())) {
-            return forbidden("Only ADMIN can access transaction history");
+        if (!"ADMIN".equalsIgnoreCase(principal.getRole()) &&
+                !wallet.getUserId().equals(principal.getUserId())) {
+            return forbidden("You can only view transactions of your own wallets");
         }
 
         try {
-            return ResponseEntity.ok(transactionService.getTransactionHistory(
-                    userId, walletId, type, start, end, page, size
-            ));
+
+            var transactionPage = transactionService.getTransactionHistory(walletId, type, start, end, page, size);
+
+            //  Return only the list (no pagination metadata)
+            return ResponseEntity.ok(transactionPage.getContent());
+
+
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(Map.of(
                     "errorCode", "INVALID_REQUEST",
@@ -104,29 +110,29 @@ public class TransactionController {
     }
 
     // ======================== GET USER TRANSACTIONS (USER or ADMIN) ========================
-    @GetMapping("/user/{userId}/transactions")
-    public ResponseEntity<?> getUserTransactions(
-            @PathVariable Long userId,
-            @RequestParam String start,
-            @RequestParam String end,
-            @RequestParam(required = false) String type
-    ) {
-        UserPrincipal principal = getCurrentUser();
-
-        // ✅ Only the same user or ADMIN can access
-        if (!"ADMIN".equalsIgnoreCase(principal.getRole()) &&
-                !userId.equals(principal.getUserId())) {
-            return forbidden("You can only view your own transactions");
-        }
-
-        Object response = transactionService.getUserTransactions(userId, start, end, type);
-        if (response instanceof String) {
-            return ResponseEntity.badRequest().body(Map.of(
-                    "errorCode", "INVALID_INPUT",
-                    "reason", response
-            ));
-        }
-
-        return ResponseEntity.ok(response);
-    }
+//    @GetMapping("/user/{userId}/transactions")
+//    public ResponseEntity<?> getUserTransactions(
+//            @PathVariable Long userId,
+//            @RequestParam String start,
+//            @RequestParam String end,
+//            @RequestParam(required = false) String type
+//    ) {
+//        UserPrincipal principal = getCurrentUser();
+//
+//        //  Only the same user or ADMIN can access
+//        if (!"ADMIN".equalsIgnoreCase(principal.getRole()) &&
+//                !userId.equals(principal.getUserId())) {
+//            return forbidden("You can only view your own transactions");
+//        }
+//
+//        Object response = transactionService.getUserTransactions(userId, start, end, type);
+//        if (response instanceof String) {
+//            return ResponseEntity.badRequest().body(Map.of(
+//                    "errorCode", "INVALID_INPUT",
+//                    "reason", response
+//            ));
+//        }
+//
+//        return ResponseEntity.ok(response);
+//    }
 }

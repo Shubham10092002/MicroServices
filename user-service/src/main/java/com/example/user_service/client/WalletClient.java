@@ -57,35 +57,4 @@ public class WalletClient {
         }
     }
 
-    //  Create default wallet for user (with full error handling)
-//    public Wallet createDefaultWalletForUser(Long userId, String username, String jwtToken) {
-//        String url = walletServiceUrl + "/api/wallets/user/" + userId + "/create-wallet";
-//        CreateWalletDTO walletDTO = new CreateWalletDTO("Default Wallet", BigDecimal.ZERO);
-//
-//        try {
-//            var request = restClient.post()
-//                    .uri(url)
-//                    .body(walletDTO);
-//
-//            if (jwtToken != null && !jwtToken.isEmpty()) {
-//                request.header(HttpHeaders.AUTHORIZATION, "Bearer " + jwtToken);
-//            }
-//
-//            return request.retrieve()
-//                    .onStatus(status -> status.is4xxClientError() || status.is5xxServerError(), (req, res) -> {
-//                        throw new WalletServiceException(
-//                                "WALLET_CREATION_FAILED",
-//                                "Wallet creation failed with status: " + res.getStatusCode()
-//                        );
-//                    })
-//                    .body(Wallet.class);
-//
-//        } catch (RestClientException ex) {
-//            throw new WalletServiceException("WALLET_CONNECTION_ERROR",
-//                    "Wallet service unreachable: " + ex.getMessage());
-//        } catch (Exception ex) {
-//            throw new WalletServiceException("WALLET_UNKNOWN_ERROR",
-//                    "Unexpected wallet error: " + ex.getMessage());
-//        }
-//    }
 }

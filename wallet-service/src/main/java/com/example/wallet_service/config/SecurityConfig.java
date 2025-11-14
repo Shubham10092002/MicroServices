@@ -72,7 +72,7 @@ public class SecurityConfig {
 
                         //  Normal wallet APIs require authentication
                         .requestMatchers("/api/wallets/**").authenticated()
-
+                        .requestMatchers("/api/transactions/**").authenticated()
                         //  Everything else open (optional)
                         .anyRequest().permitAll()
                 )

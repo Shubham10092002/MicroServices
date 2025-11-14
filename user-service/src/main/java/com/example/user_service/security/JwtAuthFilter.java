@@ -50,7 +50,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                     User user = userRepository.findByUsername(username).orElse(null);
 
                     if (user != null) {
-                        //  Check blacklist
+                        // Check blacklist...
                         if (user.isBlacklisted()) {
                             response.setStatus(HttpServletResponse.SC_FORBIDDEN);
                             response.setContentType("application/json");
@@ -59,14 +59,27 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                             return;
                         }
 
-                        //  Step 4: Create Spring Security authentication
                         var authorities = List.of(new SimpleGrantedAuthority("ROLE_" + role));
 
+                        // ❌ Old: storing full User entity
+                        // UsernamePasswordAuthenticationToken authentication =
+                        //         new UsernamePasswordAuthenticationToken(user, null, authorities);
+
+                        // ✅ New: store UserPrincipal (your custom auth object)
+                        UserPrincipal principal = new UserPrincipal(
+                                user.getId(),
+                                user.getUsername(),
+                                user.getRole(),
+                                user.getPassword()
+                        );
+
                         UsernamePasswordAuthenticationToken authentication =
-                                new UsernamePasswordAuthenticationToken(user, null, authorities);
+                                new UsernamePasswordAuthenticationToken(principal, null, authorities);
+
                         authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                         SecurityContextHolder.getContext().setAuthentication(authentication);
                     }
+
                 }
             }
 

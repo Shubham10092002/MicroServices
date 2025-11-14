@@ -23,6 +23,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         this.jwtUtil = jwtUtil;
     }
 
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
@@ -32,6 +33,9 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         try {
             if (header != null && header.startsWith("Bearer ")) {
                 String token = header.substring(7);
+
+                // ✅ Store it for downstream RestTemplate calls
+                JwtRequestContext.setToken(token);
 
                 if (jwtUtil.isTokenValid(token)) {
                     String username = jwtUtil.extractUsername(token);
@@ -47,12 +51,9 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 }
             }
 
-            // Continue the chain if everything is fine
-
             filterChain.doFilter(request, response);
 
         } catch (JwtValidationException ex) {
-            // Handle invalid, expired, malformed JWTs gracefully
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.setContentType("application/json");
             response.getWriter().write(String.format(
@@ -60,6 +61,13 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                     ex.getErrorCode(),
                     ex.getMessage()
             ));
+        } finally {
+            // ✅ Always clear after request completes
+            JwtRequestContext.clear();
         }
     }
+
+
+
+
 }
