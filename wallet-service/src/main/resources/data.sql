@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS wallets;
 CREATE TABLE wallets (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     wallet_name VARCHAR(100),
-    balance DECIMAL(19, 2) NOT NULL DEFAULT 0,
+    balance DECIMAL(19, 5) NOT NULL DEFAULT 0,
     blacklisted BOOLEAN NOT NULL DEFAULT FALSE,
 
     user_id BIGINT NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE wallets (
 CREATE TABLE transactions (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     wallet_id BIGINT NOT NULL,
-    amount DECIMAL(19, 2) NOT NULL,
+    amount DECIMAL(19, 5) NOT NULL,
     type VARCHAR(20) NOT NULL,
     description VARCHAR(255),
     timestamp TIMESTAMP(6),

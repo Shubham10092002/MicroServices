@@ -26,27 +26,6 @@ public class UserController {
     }
 
 
-//
-//    @GetMapping("/{id}/details")
-//    public ResponseEntity<UserDetailsDTO> getUserDetails(@PathVariable Long id) {
-//
-//
-////        User user = userRepository.findById(id)
-////                .orElseThrow(() -> new RuntimeException("User not found with ID " + id));
-////
-////        UserDetailsDTO dto = new UserDetailsDTO(
-////                user.getId(),
-////                user.getUsername(),
-////                user.getRole(),
-////                user.isBlacklisted()
-////        );
-//
-//        UserDetailsDTO dto = userService.getUserDetails(id);
-//
-//
-//        return ResponseEntity.ok(dto);
-//    }
-
 
 
 @GetMapping("/{id}/details")

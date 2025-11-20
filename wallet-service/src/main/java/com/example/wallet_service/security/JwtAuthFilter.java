@@ -34,7 +34,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             if (header != null && header.startsWith("Bearer ")) {
                 String token = header.substring(7);
 
-                // ✅ Store it for downstream RestTemplate calls
+                //  Store it for downstream RestTemplate calls
                 JwtRequestContext.setToken(token);
 
                 if (jwtUtil.isTokenValid(token)) {

@@ -17,7 +17,7 @@ public class Transaction {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "wallet_id", nullable = false)
+   // @JoinColumn(name = "wallet_id", nullable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "transactions", "user"})
     private Wallet wallet;
 
@@ -42,12 +42,6 @@ public class Transaction {
     public Transaction() {}
 
     public Transaction(Wallet wallet, BigDecimal amount, Type type, String description) {
-        if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0)
-            throw new IllegalArgumentException("Invalid amount: must be greater than 0");
-        if (wallet == null)
-            throw new IllegalArgumentException("Wallet cannot be null");
-        if (type == null)
-            throw new IllegalArgumentException("Transaction type must be specified");
 
         this.wallet = wallet;
         this.amount = amount;

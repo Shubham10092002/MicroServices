@@ -151,6 +151,9 @@ public class UserServiceImpl implements UserService {
     }
 
 
+
+
+
     @Override
     public UserSummaryDTO getUserById(Long id) {
         return userRepository.findById(id)

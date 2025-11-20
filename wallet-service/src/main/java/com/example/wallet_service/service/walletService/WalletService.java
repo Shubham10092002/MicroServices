@@ -54,6 +54,8 @@ public class WalletService {
     /**
      * Creates a default wallet for a given user (called from user-service)
      */
+
+
     public Wallet createWalletForUser(Long userId, CreateWalletDTO walletDTO) {
         Wallet wallet = new Wallet();
         wallet.setWalletName(walletDTO.getWalletName());
@@ -62,6 +64,8 @@ public class WalletService {
 
         return walletRepository.save(wallet);
     }
+
+
 
 
 
@@ -152,14 +156,14 @@ public class WalletService {
         }
     }
 
-
-    private UserPrincipal getCurrentUser() {
-        return (UserPrincipal) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    }
-
-    private ResponseEntity<?> forbidden(String reason) {
-        return ResponseEntity.status(403).body(Map.of("errorCode", "ACCESS_DENIED", "reason", reason));
-    }
+//
+//    private UserPrincipal getCurrentUser() {
+//        return (UserPrincipal) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//    }
+//
+//    private ResponseEntity<?> forbidden(String reason) {
+//        return ResponseEntity.status(403).body(Map.of("errorCode", "ACCESS_DENIED", "reason", reason));
+//    }
 
 
     // @Transactional(noRollbackFor = IllegalArgumentException.class)

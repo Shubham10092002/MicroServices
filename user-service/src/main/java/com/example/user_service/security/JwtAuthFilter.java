@@ -24,10 +24,13 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     private final UserRepository userRepository;
 
 
+
     public JwtAuthFilter(JwtUtil jwtUtil, UserRepository userRepository) {
         this.jwtUtil = jwtUtil;
         this.userRepository = userRepository;
+
     }
+
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -49,6 +52,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                     //  Step 3: Fetch full user from DB
                     User user = userRepository.findByUsername(username).orElse(null);
 
+
                     if (user != null) {
                         // Check blacklist...
                         if (user.isBlacklisted()) {
@@ -61,11 +65,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
                         var authorities = List.of(new SimpleGrantedAuthority("ROLE_" + role));
 
-                        // ❌ Old: storing full User entity
-                        // UsernamePasswordAuthenticationToken authentication =
-                        //         new UsernamePasswordAuthenticationToken(user, null, authorities);
-
-                        // ✅ New: store UserPrincipal (your custom auth object)
+                        //  New: store UserPrincipal (your custom auth object)
                         UserPrincipal principal = new UserPrincipal(
                                 user.getId(),
                                 user.getUsername(),

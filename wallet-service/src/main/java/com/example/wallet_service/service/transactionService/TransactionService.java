@@ -7,6 +7,7 @@ import com.example.wallet_service.model.transaction.Transaction;
 import com.example.wallet_service.model.wallet.Wallet;
 import com.example.wallet_service.repository.transactionRepository.TransactionRepository;
 import com.example.wallet_service.repository.walletRepository.WalletRepository;
+import com.example.wallet_service.service.walletService.WalletService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -31,14 +32,17 @@ public class TransactionService {
     private static final Logger logger = LoggerFactory.getLogger(TransactionService.class);
 
     private final TransactionRepository transactionRepository;
-    private final WalletRepository walletRepository;
+
     private final WalletConfig walletConfig;
+    private final WalletRepository walletRepository;
 
     public TransactionService(TransactionRepository transactionRepository,
-                              WalletRepository walletRepository, WalletConfig walletConfig) {
+                              WalletConfig walletConfig, WalletRepository walletRepository) {
         this.transactionRepository = transactionRepository;
-        this.walletRepository = walletRepository;
+
         this.walletConfig = walletConfig;
+        this.walletRepository = walletRepository;
+
     }
 
 
@@ -51,6 +55,11 @@ public class TransactionService {
 
         Wallet wallet = walletRepository.findById(walletId)
                 .orElseThrow(() -> new WalletIdNotFoundException("Wallet ID not found: " + walletId));
+
+        //wallet.ifPresent(w -> {})
+//        if (!wallet.isPresent()) {
+//            throw new WalletIdNotFoundException("Wallet ID not found: " + walletId);
+//        }
 
         return transactionRepository.findByWalletId(walletId)
                 .stream()

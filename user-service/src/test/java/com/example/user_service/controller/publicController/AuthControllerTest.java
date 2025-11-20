@@ -1,6 +1,5 @@
-package com.example.user_service.controller;
+package com.example.user_service.controller.publicController;
 
-import com.example.user_service.controller.publicController.AuthController;
 import com.example.user_service.exception.GlobalExceptionHandler;
 //import org.springframework.boot.test.mock.mockito.MockitoBean;
 

@@ -90,11 +90,10 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/internal/**").permitAll()  // internal calls handled separately
-                        .requestMatchers("/api/auth/**").permitAll()
+                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers(
                                 "/api/auth/**",
                                 "/api/users/register",
-                                // 👇 Allow Swagger-related URLs
                                 "/swagger-ui/**",
                                 "/v3/api-docs/**",
                                 "/v3/api-docs.yaml",

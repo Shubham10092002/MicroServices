@@ -69,7 +69,7 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/api/auth/**",
                                 "/api/users/register",
-                                // 👇 Allow Swagger-related URLs
+                                //  Allow Swagger-related URLs
                                 "/swagger-ui/**",
                                 "/v3/api-docs/**",
                                 "/v3/api-docs.yaml",
@@ -86,7 +86,7 @@ public class SecurityConfig {
                         //  Everything else open (optional)
                         .anyRequest().permitAll()
                 )
-                // ✅ Attach custom handlers
+                //  Attach custom handlers
                 .exceptionHandling(ex -> ex
                         .accessDeniedHandler(accessDeniedHandler)
                         .authenticationEntryPoint(authEntryPoint)

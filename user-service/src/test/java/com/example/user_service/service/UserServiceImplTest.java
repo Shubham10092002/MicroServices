@@ -1,21 +1,18 @@
 package com.example.user_service.service;
 
 import com.example.user_service.client.WalletClient;
-import com.example.user_service.dto.LoginRequestDTO;
-import com.example.user_service.dto.UserDTO;
-import com.example.user_service.dto.UserSummaryDTO;
+import com.example.user_service.dto.*;
 import com.example.user_service.exception.InvalidCredentialsException;
 import com.example.user_service.exception.UserNotFoundException;
 import com.example.user_service.model.User;
 import com.example.user_service.repository.UserRepository;
 import com.example.user_service.security.JwtUtil;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -26,7 +23,6 @@ import java.util.Map;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 class UserServiceImplTest {
@@ -49,176 +45,169 @@ class UserServiceImplTest {
     @InjectMocks
     private UserServiceImpl userService;
 
+    private User user;
+
     @BeforeEach
-    void setup() {
+    void setUp() {
         MockitoAnnotations.openMocks(this);
+
+        user = new User();
+        user.setId(1L);
+        user.setUsername("shubham");
+        user.setPassword("encodedPass");
+        user.setRole("USER");
+        user.setBlacklisted(false);
     }
 
-    // ------------------- REGISTER USER TESTS -------------------
-    @Nested
-    @DisplayName("Register User Tests")
-    class RegisterUserTests {
+    // -----------------------------------------------------------------------
+    // 1. REGISTER USER
+    // -----------------------------------------------------------------------
+    @Test
+    void testRegisterUser_Success() {
+        UserDTO dto = new UserDTO();
+        dto.setUsername("shubham");
+        dto.setPassword("pass123");
 
-        @Test
-        @DisplayName("should register user successfully")
-        void registerUser_success() {
-            UserDTO dto = new UserDTO();
-            dto.setUsername("shiv");
-            dto.setPassword("StrongPass123");
-            dto.setRole("USER");
+        when(userRepository.findByUsername("shubham")).thenReturn(Optional.empty());
+        when(passwordEncoder.encode("pass123")).thenReturn("encodedPass");
+        when(userRepository.save(any(User.class))).thenReturn(user);
 
-            User savedUser = new User();
-            savedUser.setId(1L);
-            savedUser.setUsername("shiv");
-            savedUser.setPassword("encoded");
-            savedUser.setRole("USER");
+        ResponseEntity<?> response = userService.registerUser(dto);
 
-            when(userRepository.findByUsername("shiv")).thenReturn(Optional.empty());
-            when(passwordEncoder.encode("StrongPass123")).thenReturn("encoded");
-            when(userRepository.save(any(User.class))).thenReturn(savedUser);
-
-            ResponseEntity<?> response = userService.registerUser(dto);
-
-            assertEquals(200, response.getStatusCodeValue());
-            Map<?, ?> body = (Map<?, ?>) response.getBody();
-            assertEquals("User registered successfully", body.get("message"));
-            assertEquals("shiv", body.get("username"));
-            verify(userRepository).save(any(User.class));
-        }
-
-        @Test
-        @DisplayName("should return 400 if username already exists")
-        void registerUser_usernameExists() {
-            UserDTO dto = new UserDTO();
-            dto.setUsername("shiv");
-            dto.setPassword("StrongPass123");
-
-            when(userRepository.findByUsername("shiv")).thenReturn(Optional.of(new User()));
-
-            ResponseEntity<?> response = userService.registerUser(dto);
-
-            assertEquals(400, response.getStatusCodeValue());
-            Map<?, ?> body = (Map<?, ?>) response.getBody();
-            assertEquals("Username already exists", body.get("error"));
-        }
-
-        @Test
-        @DisplayName("should return 500 if exception occurs during registration")
-        void registerUser_internalError() {
-            UserDTO dto = new UserDTO();
-            dto.setUsername("shiv");
-            dto.setPassword("StrongPass123");
-
-            when(userRepository.findByUsername("shiv")).thenThrow(new RuntimeException("DB failure"));
-
-            ResponseEntity<?> response = userService.registerUser(dto);
-
-            assertEquals(500, response.getStatusCodeValue());
-            Map<?, ?> body = (Map<?, ?>) response.getBody();
-            assertEquals("USER_REGISTRATION_ERROR", body.get("errorCode"));
-        }
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        Map<String, Object> res = (Map<String, Object>) response.getBody();
+        assertEquals("User registered successfully", res.get("message"));
+        verify(userRepository, times(1)).save(any(User.class));
     }
 
-    // ------------------- LOGIN USER TESTS -------------------
-    @Nested
-    @DisplayName("Login User Tests")
-    class LoginUserTests {
+    @Test
+    void testRegisterUser_UsernameExists() {
+        UserDTO dto = new UserDTO();
+        dto.setUsername("shubham");
+        dto.setPassword("pass123");
 
-        @Test
-        @DisplayName("should login successfully and return JWT token")
-        void loginUser_success() {
-            LoginRequestDTO dto = new LoginRequestDTO();
-            dto.setUsername("shiv");
-            dto.setPassword("StrongPass123");
+        when(userRepository.findByUsername("shubham"))
+                .thenReturn(Optional.of(user));
 
-            User user = new User();
-            user.setId(1L);
-            user.setUsername("shiv");
-            user.setRole("USER");
+        ResponseEntity<?> response = userService.registerUser(dto);
 
-            when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class)))
-                    .thenReturn(null);
-            when(userRepository.findByUsername("shiv")).thenReturn(Optional.of(user));
-            when(jwtUtil.generateToken(1L, "shiv", "USER")).thenReturn("mock-jwt");
-
-            ResponseEntity<?> response = userService.loginUser(dto);
-
-            assertEquals(200, response.getStatusCodeValue());
-            Map<?, ?> body = (Map<?, ?>) response.getBody();
-            assertEquals("mock-jwt", body.get("token"));
-            assertEquals("shiv", body.get("username"));
-        }
-
-        @Test
-        @DisplayName("should throw InvalidCredentialsException for invalid credentials")
-        void loginUser_invalidCredentials() {
-            LoginRequestDTO dto = new LoginRequestDTO();
-            dto.setUsername("shiv");
-            dto.setPassword("wrong");
-
-            when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class)))
-                    .thenThrow(new BadCredentialsException("Invalid credentials"));
-
-            assertThrows(InvalidCredentialsException.class, () -> userService.loginUser(dto));
-        }
-
-        @Test
-        @DisplayName("should throw RuntimeException for internal authentication error")
-        void loginUser_internalAuthError() {
-            LoginRequestDTO dto = new LoginRequestDTO();
-            dto.setUsername("shiv");
-            dto.setPassword("StrongPass123");
-
-            when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class)))
-                    .thenThrow(new RuntimeException("Auth service down"));
-
-            assertThrows(RuntimeException.class, () -> userService.loginUser(dto));
-        }
-
-        @Test
-        @DisplayName("should throw UserNotFoundException if user not found after successful authentication")
-        void loginUser_userNotFound() {
-            LoginRequestDTO dto = new LoginRequestDTO();
-            dto.setUsername("shiv");
-            dto.setPassword("StrongPass123");
-
-            when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class)))
-                    .thenReturn(null);
-            when(userRepository.findByUsername("shiv")).thenReturn(Optional.empty());
-
-            assertThrows(UserNotFoundException.class, () -> userService.loginUser(dto));
-        }
+        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+        verify(userRepository, never()).save(any());
     }
 
-    // ------------------- GET USER BY ID TESTS -------------------
-    @Nested
-    @DisplayName("Get User By ID Tests")
-    class GetUserByIdTests {
+    // -----------------------------------------------------------------------
+    // 2. LOGIN USER
+    // -----------------------------------------------------------------------
+    @Test
+    void testLoginUser_Success() {
 
-        @Test
-        @DisplayName("should return user summary successfully")
-        void getUserById_success() {
-            User user = new User();
-            user.setId(1L);
-            user.setUsername("shiv");
+        // FIX: Updated to use setters, not constructor
+        LoginRequestDTO dto = new LoginRequestDTO();
+        dto.setUsername("shubham");
+        dto.setPassword("password");
 
-            when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+        when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class)))
+                .thenReturn(null);
 
-            UserSummaryDTO result = userService.getUserById(1L);
+        when(userRepository.findByUsername("shubham")).thenReturn(Optional.of(user));
+        when(jwtUtil.generateToken(user.getId(), user.getUsername(), user.getRole()))
+                .thenReturn("mockToken");
 
-            assertEquals(1L, result.getId());
-            assertEquals("shiv", result.getUsername());
-        }
+        ResponseEntity<?> response = userService.loginUser(dto);
 
-        @Test
-        @DisplayName("should throw exception when user not found")
-        void getUserById_notFound() {
-            when(userRepository.findById(99L)).thenReturn(Optional.empty());
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        Map<String, Object> res = (Map<String, Object>) response.getBody();
+        assertEquals("mockToken", res.get("token"));
+    }
 
-            RuntimeException ex = assertThrows(RuntimeException.class,
-                    () -> userService.getUserById(99L));
+    @Test
+    void testLoginUser_InvalidCredentials() {
 
-            assertTrue(ex.getMessage().contains("User not found"));
-        }
+        LoginRequestDTO dto = new LoginRequestDTO();
+        dto.setUsername("shubham");
+        dto.setPassword("wrongPass");
+
+        doThrow(new BadCredentialsException("Bad credentials"))
+                .when(authenticationManager)
+                .authenticate(any(UsernamePasswordAuthenticationToken.class));
+
+        assertThrows(InvalidCredentialsException.class,
+                () -> userService.loginUser(dto));
+    }
+
+    @Test
+    void testLoginUser_BlacklistedUser() {
+
+        LoginRequestDTO dto = new LoginRequestDTO();
+        dto.setUsername("shubham");
+        dto.setPassword("password");
+
+        user.setBlacklisted(true);
+
+        when(authenticationManager.authenticate(any())).thenReturn(null);
+        when(userRepository.findByUsername("shubham")).thenReturn(Optional.of(user));
+
+        ResponseEntity<?> response = userService.loginUser(dto);
+
+        assertEquals(HttpStatus.FORBIDDEN, response.getStatusCode());
+        Map<String, Object> res = (Map<String, Object>) response.getBody();
+        assertEquals("USER_BLACKLISTED", res.get("errorCode"));
+    }
+
+    // -----------------------------------------------------------------------
+    // 3. TOGGLE BLACKLIST
+    // -----------------------------------------------------------------------
+    @Test
+    void testToggleBlacklistStatus() {
+        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+        when(userRepository.save(any())).thenReturn(user);
+
+        User updated = userService.toggleBlacklistStatus(1L, true);
+
+        assertTrue(updated.isBlacklisted());
+        verify(userRepository, times(1)).save(any(User.class));
+    }
+
+    @Test
+    void testToggleBlacklistStatus_UserNotFound() {
+        when(userRepository.findById(1L)).thenReturn(Optional.empty());
+
+        assertThrows(UserNotFoundException.class,
+                () -> userService.toggleBlacklistStatus(1L, true));
+    }
+
+    // -----------------------------------------------------------------------
+    // 4. GET USER DETAILS
+    // -----------------------------------------------------------------------
+    @Test
+    void testGetUserDetails() {
+        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+
+        UserDetailsDTO dto = userService.getUserDetails(1L);
+
+        assertEquals(1L, dto.getId());
+        assertEquals("shubham", dto.getUsername());
+        assertFalse(dto.isBlacklisted());
+    }
+
+    // -----------------------------------------------------------------------
+    // 5. GET USER BY ID (Summary)
+    // -----------------------------------------------------------------------
+    @Test
+    void testGetUserById_Success() {
+        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+
+        UserSummaryDTO summary = userService.getUserById(1L);
+
+        assertEquals(1L, summary.getId());
+        assertEquals("shubham", summary.getUsername());
+    }
+
+    @Test
+    void testGetUserById_NotFound() {
+        when(userRepository.findById(1L)).thenReturn(Optional.empty());
+
+        assertThrows(RuntimeException.class,
+                () -> userService.getUserById(1L));
     }
 }

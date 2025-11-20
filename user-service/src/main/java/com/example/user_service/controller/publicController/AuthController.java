@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     private final UserService userService; // interface!
-    private final UserServiceImpl userServiceImpl;
+   // private final UserServiceImpl userServiceImpl;
 
-    public AuthController(UserService userService, UserServiceImpl userServiceImpl) {
+    public AuthController(UserService userService) {
         this.userService = userService;
-        this.userServiceImpl = userServiceImpl;
+       // this.userServiceImpl = userServiceImpl;
     }
 
     @PostMapping("/login")
